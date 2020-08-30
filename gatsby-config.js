@@ -1,3 +1,4 @@
+const lessToJson = require('less-to-json'); 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -25,17 +26,33 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful starter",
+    title: "North Cloud Consulting",
   },
   pathPrefix: "/gatsby-contentful-starter",
   plugins: [
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-styled-components",
     "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
+    {
+      resolve: "gatsby-plugin-less",
+      options: {
+        lessOptions: {
+          javascriptEnabled: true,
+          modifyVars: lessToJson('src/theme/vars.less'),
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-antd',
+      options: {
+        style: true
+      }
+    }
   ],
 };

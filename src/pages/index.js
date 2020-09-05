@@ -36,8 +36,8 @@ export const PageQuery = graphql`
             title
             description
             image{
-              fluid(maxWidth: 64, maxHeight: 64, resizingBehavior: SCALE) {
-                ...GatsbyContentfulFluid
+              fixed(width: 64, height: 64) {
+                ...GatsbyContentfulFixed
               }
             }
           }

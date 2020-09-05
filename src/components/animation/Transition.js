@@ -1,15 +1,16 @@
 import React from 'react'
-import {useTransition, animated} from 'react-spring'
+import {Keyframes} from 'react-spring'
 
 
-export default function TransitionWrapper(props) {
-    const transitions = useTransition(props.isVisible, null, {
-        from: { transform: 'translate3d(0,-40px,0)' },
-        enter: { transform: 'translate3d(0,0px,0)' },
-        leave: { transform: 'translate3d(0,-40px,0)' },
-        })
-        console.log(props.isVisible)
-    return transitions.map(({ item, props, key }) =>
-        item && props.children
-    ) 
-}
+export const TransitionContainer = Keyframes.Spring({
+  // Single props
+  show: {opacity: 1},
+  // Chained animations (arrays)
+  showAndHide: [{opacity: 1}, {opacity: 0}],
+  // Functions with side-effects with access to component props
+  wiggle: async (next, cancel, ownProps) => {
+    await next({x: 100, config: config.wobbly})
+    await delay(1000)
+    await next({x: 0, config: config.gentle})
+  }
+})

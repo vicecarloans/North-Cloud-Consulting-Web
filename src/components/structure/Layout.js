@@ -8,14 +8,14 @@ const {Text} = Typography
 
 export default function PageLayout(props) {
   // state to keep track of how many px scrolled
-  const [scroll, setScroll] = useState(window.scrollY);
-  const handleScroll = () => setScroll(window.scrollY);
+  const [scroll, setScroll] = useState(typeof window !== "undefined" ? window.scrollY : 0);
+  const handleScroll = () => setScroll(typeof window !== "undefined" ? window.scrollY : 0);
 
   // set up listener on window to update scroll state on scroll
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    typeof window !== "undefined" && window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll");
+      typeof window !== "undefined" && window.removeEventListener("scroll");
     }
   }, []);
 

@@ -1,9 +1,46 @@
 import React from 'react'
+import { PageLayout } from "components/structure";
+import { TopSection, DetailSection } from 'components/solutions';
+import { graphql } from "gatsby";
+import { get } from 'lodash'
 
-export default function Solutions() {
+export default function Solutions(props) {
+    const [page] = get(props.data, "allContentfulSolutionPage.edges") 
+
     return (
-        <div>
-            Solutions
-        </div>
+        <PageLayout introComponent={<TopSection data={page.node} />}>
+          <DetailSection solutions={page.node.solutions} />
+        </PageLayout>
     )
 }
+
+export const PageQuery = graphql`
+  query SolutionsPageQuery{
+    allContentfulSolutionPage{
+      edges {
+        node {
+          title
+          subTitle
+          description {
+              description
+          }
+          topSectionImage {
+            fixed(width: 200, height: 200){
+              ...GatsbyContentfulFixed_tracedSVG
+            }
+          }
+          solutions {
+            title
+            subTitle
+            mainPoints
+            image {
+              fluid(maxWidth: 250, quality: 100) {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

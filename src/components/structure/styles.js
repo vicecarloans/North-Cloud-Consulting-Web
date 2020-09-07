@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Layout } from 'antd'
+import { Layout, Button } from 'antd'
 import { Link } from "gatsby";
 
 const {Header, Content, Footer} = Layout
@@ -21,11 +21,14 @@ export const AppLogo = styled.div`
 `;
 
 export const PageContent = styled(Content)`
-    padding-bottom: 100px;
+    
 `
 
 export const PageFooter = styled(Footer)`
-    background-color: #1890ff;
+    background: linear-gradient(to right, #56CCF2, #2F80ED);
+    text-align: center;
+    min-height: 150px;
+    padding-top: 100px;
 `;
 
 export const StyledLink = styled(Link)`
@@ -33,5 +36,12 @@ export const StyledLink = styled(Link)`
     color: ${props => props.scroll > 30 ? "#000" : "#fff"};
     &:hover, &:active {
         color: #1bc8ee;
+    }
+`;
+
+export const ContactButton = styled(Button)`
+    &:hover, &:active, &:focus {
+        color: #18578c;
+        border-color: #18578c;
     }
 `;

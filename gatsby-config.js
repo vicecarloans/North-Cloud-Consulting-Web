@@ -67,5 +67,13 @@ module.exports = {
                 utils: path.join(__dirname, "src/utils")
             },
         },
+        {
+            resolve: 'gatsby-plugin-react-svg',
+            options: {
+              rule: {
+                include: /assets/
+              }
+            }
+        }
     ],
 };

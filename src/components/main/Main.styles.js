@@ -17,6 +17,7 @@ export const CompanyFeaturesDiv = styled.div`
     margin-top: 40px;
     text-align: center;
     min-height: 100px;
+    padding-bottom: 100px;
 `;
 
 export const BackgroundImage = styled(Img)`

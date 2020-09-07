@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import { PageHeader, AppLogo, PageContent, PageFooter, StyledLink } from "./styles";
+import { PageHeader, AppLogo, PageContent, PageFooter, StyledLink, ContactButton } from "./styles";
 import { Layout, Row, Col, Space, Typography } from "antd";
+import { SendOutlined } from '@ant-design/icons'
 import { Helmet } from "react-helmet";
+import FooterArrow from "../../../public/assets/footer.svg"
 
-const {Text} = Typography
+const {Title, Paragraph} = Typography
 
 
 export default function PageLayout(props) {
@@ -13,9 +15,12 @@ export default function PageLayout(props) {
 
   // set up listener on window to update scroll state on scroll
   useEffect(() => {
+    console.log("Add Scroll Event Listener")
     typeof window !== "undefined" && window.addEventListener("scroll", handleScroll);
     return () => {
-      typeof window !== "undefined" && window.removeEventListener("scroll");
+      typeof window !== "undefined" && window.removeEventListener("scroll", () => {
+        console.log("Remove Scroll Event Listener")
+      });
     }
   }, []);
 
@@ -41,9 +46,14 @@ export default function PageLayout(props) {
 
             <PageContent>
                 {props.children}
+                <FooterArrow style={{position: "absolute"}} />
             </PageContent>
-            <PageFooter style={{ textAlign: 'center' }}>
-              
+            
+            <PageFooter>
+              <Title level={3} style={{color: "#fff", fontWeight: "bold", marginBottom: "20px"}}>Like What We Have To Offer?</Title>
+              <ContactButton  ghost icon={<SendOutlined />} size="large">Contact Us</ContactButton>
+
+              <Paragraph style={{color: "#fff", marginTop: "20px"}} >&copy; {new Date().getFullYear()} All Rights Reserved.</Paragraph>
             </PageFooter>
         </Layout>
     )

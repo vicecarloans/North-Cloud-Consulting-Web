@@ -1,11 +1,11 @@
-import React from "react";
-import { Row, Col, Typography } from "antd";
+import React from 'react'
+import { TopSectionDiv } from '../solutions/Solutions.styles'
+import { Row, Col, Typography } from 'antd'
 import Img from "gatsby-image";
-import { TopSectionDiv } from "./Solutions.styles";
 
 const { Title, Text } = Typography;
 
-export default function SolutionTopSection({ data }) {
+export default function AboutTopSection({data}) {
     return (
         <TopSectionDiv>
             <Row align="middle" gutter={[16, 16]} justify="center">
@@ -17,7 +17,7 @@ export default function SolutionTopSection({ data }) {
                         {data.subTitle}
                     </Title>
                     <Text style={{color: "#fff", padding: "0 20" }}>
-                        {data.description.description}
+                        {data.childContentfulAboutPageDescriptionTextNode.description}
                     </Text> 
                 </Col>
                 <Col align="middle" xs={24} sm={24} lg={6} xl={6}>

@@ -74,6 +74,10 @@ export default function PageLayout(props) {
 
             form.submit();
             setLoading(false);
+            message.success({
+                content:
+                    "We have received your request and will be reaching out shortly",
+            });
         } catch (err) {
             setLoading(false);
         }
@@ -82,33 +86,7 @@ export default function PageLayout(props) {
         toggleModal();
     }
 
-    function handleSubmit(values) {
-        if (values[`bot-field`] === undefined) {
-            delete values[`bot-field`];
-        }
-        fetch(`/`, {
-            method: `POST`,
-            headers: { "Content-Type": `application/x-www-form-urlencoded` },
-            body: encode({
-                "form-name": "contact",
-                ...values,
-            }),
-        })
-            .then(() => {
-                setLoading(false);
-                toggleModal();
-                message.success({
-                    content:
-                        "We have received your request and will be reaching out shortly",
-                });
-            })
-            .catch((error) => {
-                message.error({
-                    content:
-                        "Ooops...Something went wrong. Please retry or contact Administrator",
-                });
-            });
-    }
+    
 
     return (
         <ModalContext.Provider value={{ toggleModal, visible, loading }}>
@@ -140,41 +118,16 @@ export default function PageLayout(props) {
                     maskClosable={false}
                     destroyOnClose
                 >
-                    {/*
-                        This defines how your form is setup for the Netlify bots.
-                        Users will not see or interact with this form.
-                    */}
-                    <form
-                        netlify
-                        name="contact"
-                        data-netlify="true"
-                        data-netlify-honeypot="bot-field"
-                        hidden
-                    >
-                        <input type="text" name="fullName" />
-                        <input type="email" name="email" />
-                        <input type="text" name="phone" />
-                        <textarea name="message"></textarea>
-                    </form>
                     <Form
-                        onFinish={handleSubmit}
                         layout="vertical"
                         requiredMark="optional"
                         form={form}
-                        name="contact"
+                        name="contact-form"
                         method="POST"
                         data-netlify="true"
                         data-netlify-honeypot="bot-field"
                     >
-                        {/* This is the hidden field that the netlify-honeypot uses. */}
-                        <Form.Item
-                            label="Don't fill this out"
-                            className={`hidden`}
-                            style={{ display: `none` }}
-                            name="bot-field"
-                        >
-                            <Input type={`hidden`} />
-                        </Form.Item>
+                        <input type="hidden" name="form-name" value="contact-form" />
                         <Form.Item
                             name="fullName"
                             label="Full Name"

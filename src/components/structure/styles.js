@@ -21,7 +21,7 @@ export const AppLogo = styled.div`
 `;
 
 export const PageContent = styled(Content)`
-    
+    padding-bottom: 1px;
 `
 
 export const PageFooter = styled(Footer)`

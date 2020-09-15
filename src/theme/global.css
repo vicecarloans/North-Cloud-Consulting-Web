@@ -20,3 +20,7 @@ pre code {
     padding: 20px;
     overflow: scroll;
 }
+
+div.ant-list-pagination{
+    text-align: center;
+}

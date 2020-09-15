@@ -44,6 +44,9 @@ export default function BlogPost({ data }) {
                     xl: 3,
                     xxl: 3,
                 }}
+                pagination={{
+                    pageSize: 6
+                }}
                 style={{marginBottom: 100}}
                 dataSource={data.blogs}
                 renderItem={(item, i) => (

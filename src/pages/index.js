@@ -1,12 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { PageLayout } from "components/structure";
+
 import { Intro, IntroContent, CompanyFeatures } from 'components/main'
 import { get } from 'lodash'
 
 function RootIndex(props) {
     const [main] = get(props.data, "allContentfulMainPage.edges")
     const siteTitle = get(props.data, "site.siteMetadata.title")
+    
     return (
       <>
         <Intro data={main.node}>

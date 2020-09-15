@@ -41,7 +41,7 @@ export const PageQuery = graphql`
             linkedIn
             phone
             image {
-              fluid(maxWidth: 100, maxHeight: 100, resizingBehavior: SCALE, quality: 100) {
+              fluid(maxWidth: 80, maxHeight: 80, resizingBehavior: SCALE, quality: 100) {
                 src
               }
             }

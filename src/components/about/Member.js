@@ -41,7 +41,7 @@ export default function Member({ data }) {
                 )}
             </VisibilitySensor>
             <Row
-                align="middle"
+                align="top"
                 gutter={[16, 16]}
                 justify="center"
                 style={{ paddingLeft: 20, paddingRight: 20 }}
@@ -65,7 +65,6 @@ export default function Member({ data }) {
                                         sm={24}
                                         lg={8}
                                         xl={8}
-                                        align="middle"
                                     >
                                         <TeamList>
                                             <Conte>

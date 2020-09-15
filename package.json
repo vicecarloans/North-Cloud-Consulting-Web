@@ -8,6 +8,7 @@
     "url": "https://github.com/contentful/starter-gatsby-blog/issues"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.1",
     "antd": "^4.6.1",
     "babel-plugin-styled-components": "^1.11.1",
     "gatsby": "^2.23.9",

@@ -32,7 +32,6 @@ export const PageFooter = styled(Footer)`
 `;
 
 export const StyledLink = styled(Link)`
-
     color: ${props => props.scroll > 30 ? "#000" : "#fff"};
     &:hover, &:active {
         color: #1bc8ee;

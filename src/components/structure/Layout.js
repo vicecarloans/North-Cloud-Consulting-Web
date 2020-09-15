@@ -9,21 +9,30 @@ const {Title, Paragraph} = Typography
 
 
 export default function PageLayout(props) {
-  // state to keep track of how many px scrolled
-  const [scroll, setScroll] = useState(typeof window !== "undefined" ? window.scrollY : 0);
-  const handleScroll = () => setScroll(typeof window !== "undefined" ? window.scrollY : 0);
+    // state to keep track of how many px scrolled
+    const [scroll, setScroll] = useState(typeof window !== "undefined" ? window.scrollY : 0);
+    const handleScroll = (e) => {
+      console.log(e)
+      setScroll(typeof window !== "undefined" ? window.scrollY : 0)
+    };
 
-  // set up listener on window to update scroll state on scroll
-  useEffect(() => {
-    console.log("Add Scroll Event Listener")
-    typeof window !== "undefined" && window.addEventListener("scroll", handleScroll);
-    return () => {
-      typeof window !== "undefined" && window.removeEventListener("scroll", () => {
-        console.log("Remove Scroll Event Listener")
-      });
-    }
-  }, []);
+    // set up listener on window to update scroll state on scroll
+    useEffect(() => {
+      
+      if(typeof window !== "undefined"){
+        console.log("Add Scroll Event Listener")
+        window.addEventListener("scroll", handleScroll);
+      }  
+      return () => {
+        if(typeof window !== "undefined"){
 
+          window.removeEventListener("scroll", () => {
+            console.log("Remove Scroll Event Listener")
+          });
+        } 
+      }
+    }, []);
+      
     return (
         <Layout style={{backgroundColor: "transparent"}} className="layout">
             <Helmet title="North Cloud Consulting" />

@@ -100,6 +100,7 @@ export default function PageLayout(props) {
                     content:
                         "We have received your request and will be reaching out shortly",
                 });
+                form.resetFields();
             })
             .catch((error) => {
                 message.error({

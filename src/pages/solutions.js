@@ -6,9 +6,9 @@ import { get } from 'lodash'
 
 export default function Solutions(props) {
     const [page] = get(props.data, "allContentfulSolutionPage.edges") 
-
+    const siteTitle = get(props.data, "site.siteMetadata.title")
     return (
-        <PageLayout introComponent={<TopSection data={page.node} />}>
+        <PageLayout title={siteTitle} introComponent={<TopSection data={page.node} />}>
           <DetailSection solutions={page.node.solutions} />
         </PageLayout>
     )
@@ -16,6 +16,11 @@ export default function Solutions(props) {
 
 export const PageQuery = graphql`
   query SolutionsPageQuery{
+    site {
+        siteMetadata {
+            title
+        }
+    }
     allContentfulSolutionPage{
       edges {
         node {

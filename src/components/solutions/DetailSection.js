@@ -95,7 +95,7 @@ export default function DetailSection({ solutions }) {
                 </VisibilitySensor>
             );
         }
-        return i % 2 == 0 ? (
+        return i % 2 === 0 ? (
             <VisibilitySensor key={i} partialVisibility>
                 {({ isVisible }) => (
                     <SolutionDetailsDiv>

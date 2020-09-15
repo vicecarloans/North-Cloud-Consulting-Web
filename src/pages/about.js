@@ -6,9 +6,9 @@ import { TopSection, MemberSection } from 'components/about'
 
 export default function About(props) {
     const [page] = get(props.data, "allContentfulAboutPage.edges")
-    
+    const siteTitle = get(props.data, "site.siteMetadata.title")
     return (
-        <PageLayout introComponent={<TopSection data={page.node} />}>
+        <PageLayout title={siteTitle} introComponent={<TopSection data={page.node} />}>
           <MemberSection data={page.node} />
         </PageLayout>
     )
@@ -16,6 +16,11 @@ export default function About(props) {
 
 export const PageQuery = graphql`
   query AboutPageQuery{
+    site {
+        siteMetadata {
+            title
+        }
+    }
     allContentfulAboutPage{
       edges {
         node {

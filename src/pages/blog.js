@@ -7,8 +7,9 @@ import { TopSection, BlogPost } from 'components/blog'
 
 export default function BlogPage(props) {
   const [page] = get(props.data, "allContentfulBlogPage.edges")
+  const siteTitle = get(props.data, "site.siteMetadata.title")
   return (
-    <PageLayout introComponent={<TopSection data={page.node}/>}>
+    <PageLayout title={siteTitle} introComponent={<TopSection data={page.node}/>}>
       <BlogPost data={page.node} />
     </PageLayout>
   )
@@ -17,6 +18,11 @@ export default function BlogPage(props) {
 
 export const PageQuery = graphql`
   query BlogPageQuery{
+    site {
+        siteMetadata {
+            title
+        }
+    }
     allContentfulBlogPage{
       edges {
         node {

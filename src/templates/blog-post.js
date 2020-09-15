@@ -10,9 +10,8 @@ import { get } from "lodash";
 export default function BlogPost(props) {
     const post = get(props.data, "contentfulBlogPost");
     const siteTitle = get(props.data, "site.siteMetadata.title");
-
     return (
-        <PageLayout introComponent={<TopSection data={post} />}>
+        <PageLayout title={post.title || siteTitle} introComponent={<TopSection data={post} />}>
             <HeroImage post={post} />
             <Row style={{ width: "100%", marginLeft: 10, paddingRight: 10, marginBottom: 100 }} justify="center">
                 <Col xs={24} sm={24} lg={12} xl={12}>

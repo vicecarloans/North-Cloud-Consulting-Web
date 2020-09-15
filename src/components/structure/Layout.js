@@ -122,7 +122,7 @@ export default function PageLayout(props) {
                     Users will not see or interact with this form.
                 */}
                 <form
-                    name="contact"
+                    name="contact-form"
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
                     hidden

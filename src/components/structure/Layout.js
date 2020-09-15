@@ -17,7 +17,7 @@ import {
     Button,
     Form,
     Input,
-    message
+    message,
 } from "antd";
 import { SendOutlined } from "@ant-design/icons";
 import { Helmet } from "react-helmet";
@@ -28,8 +28,11 @@ const { Title, Paragraph } = Typography;
 
 function encode(data) {
     return Object.keys(data)
-        .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
-        .join(`&`)
+        .map(
+            (key) =>
+                encodeURIComponent(key) + `=` + encodeURIComponent(data[key])
+        )
+        .join(`&`);
 }
 
 export default function PageLayout(props) {
@@ -65,41 +68,46 @@ export default function PageLayout(props) {
     }
 
     async function handleOk() {
-        try{
-            setLoading(true)
+        try {
+            setLoading(true);
             await form.validateFields();
 
             form.submit();
             setLoading(false);
-        }catch(err){
+        } catch (err) {
             setLoading(false);
         }
-        
     }
     function handleCancel() {
         toggleModal();
     }
 
-    function handleSubmit(values){
+    function handleSubmit(values) {
         if (values[`bot-field`] === undefined) {
-            delete values[`bot-field`]
+            delete values[`bot-field`];
         }
         fetch(`/`, {
             method: `POST`,
-            headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+            headers: { "Content-Type": `application/x-www-form-urlencoded` },
             body: encode({
-                'form-name': "contact",
+                "form-name": "contact",
                 ...values,
             }),
         })
             .then(() => {
                 setLoading(false);
                 toggleModal();
-                message.success({content: "We have received your request and will be reaching out shortly"})
+                message.success({
+                    content:
+                        "We have received your request and will be reaching out shortly",
+                });
             })
-            .catch(error => {
-                message.error({content: "Ooops...Something went wrong. Please retry or contact Administrator"})
-            })
+            .catch((error) => {
+                message.error({
+                    content:
+                        "Ooops...Something went wrong. Please retry or contact Administrator",
+                });
+            });
     }
 
     return (
@@ -137,17 +145,27 @@ export default function PageLayout(props) {
                         Users will not see or interact with this form.
                     */}
                     <form
+                        netlify
                         name="contact"
                         data-netlify="true"
                         data-netlify-honeypot="bot-field"
                         hidden
-                        >
+                    >
                         <input type="text" name="fullName" />
                         <input type="email" name="email" />
-                        <input type="text" name="phone"/>
+                        <input type="text" name="phone" />
                         <textarea name="message"></textarea>
                     </form>
-                    <Form onFinish={handleSubmit} layout="vertical" requiredMark="optional" form={form}  name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <Form
+                        onFinish={handleSubmit}
+                        layout="vertical"
+                        requiredMark="optional"
+                        form={form}
+                        name="contact"
+                        method="POST"
+                        data-netlify="true"
+                        data-netlify-honeypot="bot-field"
+                    >
                         {/* This is the hidden field that the netlify-honeypot uses. */}
                         <Form.Item
                             label="Don't fill this out"
@@ -198,7 +216,10 @@ export default function PageLayout(props) {
                             <Input placeholder="(555) 555-5555" />
                         </Form.Item>
                         <Form.Item name="message" label="Message">
-                            <Input.TextArea autoSize={{minRows: 3}} placeholder="Your message here" />
+                            <Input.TextArea
+                                autoSize={{ minRows: 3 }}
+                                placeholder="Your message here"
+                            />
                         </Form.Item>
                     </Form>
                 </Modal>

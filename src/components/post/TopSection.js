@@ -16,11 +16,10 @@ export default function TopSection({data}) {
                     </Title>
                     <Breadcrumb>
                         <Breadcrumb.Item>
-                            <StyledLink to="/">Home</StyledLink>
-                            
+                            <StyledLink fade to="/">Home</StyledLink>
                         </Breadcrumb.Item>
                         <Breadcrumb.Item>
-                            <StyledLink to="/blog">Blog</StyledLink>
+                            <StyledLink fade to="/blog">Blog</StyledLink>
                         </Breadcrumb.Item>
                         <Breadcrumb.Item>
                             {data.title}

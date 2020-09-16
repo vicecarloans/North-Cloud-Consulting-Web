@@ -265,18 +265,21 @@ export default function PageLayout(props) {
                                               <DrawerLink
                                                   scroll={scroll}
                                                   to="/solutions"
+                                                  fade
                                               >
                                                   Solutions
                                               </DrawerLink>
                                               <DrawerLink
                                                   scroll={scroll}
                                                   to="/blog"
+                                                  fade
                                               >
                                                   Blog
                                               </DrawerLink>
                                               <DrawerLink
                                                   scroll={scroll}
                                                   to="/about"
+                                                  fade
                                               >
                                                   About Us
                                               </DrawerLink>
@@ -287,6 +290,7 @@ export default function PageLayout(props) {
                                               scroll={scroll}
                                               to="/solutions"
                                               key="solution-link"
+                                              fade
                                           >
                                               Solutions
                                           </StyledLink>,
@@ -294,6 +298,7 @@ export default function PageLayout(props) {
                                               key="blog-link"
                                               scroll={scroll}
                                               to="/blog"
+                                              fade
                                           >
                                               Blog
                                           </StyledLink>,
@@ -301,6 +306,7 @@ export default function PageLayout(props) {
                                               key="about-us-link"
                                               scroll={scroll}
                                               to="/about"
+                                              fade
                                           >
                                               About Us
                                           </StyledLink>,

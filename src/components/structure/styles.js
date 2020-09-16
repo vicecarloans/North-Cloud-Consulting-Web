@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Layout, Button } from 'antd'
-import { Link } from "gatsby";
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const {Header, Content, Footer} = Layout
 
@@ -31,14 +31,14 @@ export const PageFooter = styled(Footer)`
     padding-top: 100px;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(AniLink)`
     color: ${props => props.scroll > 30 ? "#000" : "#fff"};
     &:hover, &:active {
         color: #1bc8ee;
     }
 `;
 
-export const DrawerLink = styled(Link)`
+export const DrawerLink = styled(AniLink)`
     color: #000;
     margin: 20px 0;
     &:hover, &:active {

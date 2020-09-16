@@ -38,6 +38,15 @@ export const StyledLink = styled(Link)`
     }
 `;
 
+export const DrawerLink = styled(Link)`
+    color: #000;
+    margin: 20px 0;
+    &:hover, &:active {
+        color: #1bc8ee;
+    }
+    display: block;
+`;
+
 export const ContactButton = styled(Button)`
     &:hover, &:active, &:focus {
         color: #18578c;

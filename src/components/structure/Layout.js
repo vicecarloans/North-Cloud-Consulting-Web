@@ -6,6 +6,7 @@ import {
     PageFooter,
     StyledLink,
     ContactButton,
+    DrawerLink,
 } from "./styles";
 import {
     Layout,
@@ -18,11 +19,13 @@ import {
     Form,
     Input,
     message,
+    Drawer,
 } from "antd";
-import { SendOutlined } from "@ant-design/icons";
+import { SendOutlined, MenuOutlined } from "@ant-design/icons";
 import { Helmet } from "react-helmet";
 import FooterArrow from "../../../public/assets/footer.svg";
 import { ModalContext } from "utils/modal-context";
+import useDeviceDetect from "utils/useDeviceDetect";
 
 const { Title, Paragraph } = Typography;
 
@@ -40,9 +43,15 @@ export default function PageLayout(props) {
     const [scroll, setScroll] = useState(
         typeof document !== "undefined" ? document.body.scrollTop : 0
     );
+    // Modal
     const [visible, setVisible] = useState(false);
     const [loading, setLoading] = useState(false);
+    // Drawer
+    const [openDrawer, setDrawerState] = useState(false);
+    //Use Form
     const [form] = Form.useForm();
+    // Mobile Check
+    const { isMobile } = useDeviceDetect();
     const handleScroll = () =>
         setScroll(
             typeof document !== "undefined" ? document.body.scrollTop : 0
@@ -116,7 +125,6 @@ export default function PageLayout(props) {
                 style={{ backgroundColor: "transparent" }}
                 className="layout"
             >
-                
                 <Helmet title={props.title} />
                 {/*
                     This defines how your form is setup for the Netlify bots.
@@ -156,7 +164,6 @@ export default function PageLayout(props) {
                     maskClosable={false}
                     destroyOnClose
                 >
-                    
                     <Form
                         onFinish={handleSubmit}
                         layout="vertical"
@@ -232,18 +239,72 @@ export default function PageLayout(props) {
                         <Col>
                             <Space
                                 style={{ height: "100%" }}
-                                align="center"
+                                align={isMobile? "end" : "center"}
                                 size="large"
                             >
-                                <StyledLink scroll={scroll} to="/solutions">
-                                    Solutions
-                                </StyledLink>
-                                <StyledLink scroll={scroll} to="/blog">
-                                    Blog
-                                </StyledLink>
-                                <StyledLink scroll={scroll} to="/about">
-                                    About Us
-                                </StyledLink>
+                                {isMobile
+                                    ? [
+                                          <Button
+                                              type="text"
+                                              icon={<MenuOutlined />}
+                                              onClick={() =>
+                                                  setDrawerState(true)
+                                              }
+                                              style={{color: "#fff"}}
+                                              key="drawer-btn"
+                                          ></Button>,
+                                          <Drawer
+                                              title="Navigation"
+                                              placement="left"
+                                              onClose={() =>
+                                                  setDrawerState(false)
+                                              }
+                                              visible={openDrawer}
+                                              key="navigation-drawer"
+                                          >
+                                              <DrawerLink
+                                                  scroll={scroll}
+                                                  to="/solutions"
+                                              >
+                                                  Solutions
+                                              </DrawerLink>
+                                              <DrawerLink
+                                                  scroll={scroll}
+                                                  to="/blog"
+                                              >
+                                                  Blog
+                                              </DrawerLink>
+                                              <DrawerLink
+                                                  scroll={scroll}
+                                                  to="/about"
+                                              >
+                                                  About Us
+                                              </DrawerLink>
+                                          </Drawer>,
+                                      ]
+                                    : [
+                                          <StyledLink
+                                              scroll={scroll}
+                                              to="/solutions"
+                                              key="solution-link"
+                                          >
+                                              Solutions
+                                          </StyledLink>,
+                                          <StyledLink
+                                              key="blog-link"
+                                              scroll={scroll}
+                                              to="/blog"
+                                          >
+                                              Blog
+                                          </StyledLink>,
+                                          <StyledLink
+                                              key="about-us-link"
+                                              scroll={scroll}
+                                              to="/about"
+                                          >
+                                              About Us
+                                          </StyledLink>,
+                                      ]}
                             </Space>
                         </Col>
                     </Row>

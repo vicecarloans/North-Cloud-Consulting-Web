@@ -104,13 +104,13 @@ div.ant-list-pagination {
     top: -120px;
     left: 0px;
     /* Firefox */
-    -moz-animation-duration: 50s;
+    -moz-animation-duration: 60s;
     /* WebKit - Chrome and Safari */
-    -webkit-animation-duration: 50s;
+    -webkit-animation-duration: 60s;
     /* Opera */
-    -o-animation-duration: 50s;
+    -o-animation-duration: 60s;
     /* general syntax */
-    animation-duration: 50s;
+    animation-duration: 60s;
 }
 
 .med {
@@ -118,24 +118,24 @@ div.ant-list-pagination {
     top: -60px;
     left: 0px;
     /* Firefox */
-    -moz-animation-duration: 65s;
+    -moz-animation-duration: 85s;
     /* WebKit - Chrome and Safari */
-    -webkit-animation-duration: 65s;
+    -webkit-animation-duration: 85s;
     /* Opera */
-    -o-animation-duration: 65s;
+    -o-animation-duration: 85s;
     /* general syntax */
-    animation-duration: 65s;
+    animation-duration: 85s;
 }
 .lrg {
     /*width 130px*/
     top: 40px;
     left: 0px;
     /* Firefox */
-    -moz-animation-duration: 110s;
+    -moz-animation-duration: 100s;
     /* WebKit - Chrome and Safari */
-    -webkit-animation-duration: 110s;
+    -webkit-animation-duration: 100s;
     /* Opera */
-    -o-animation-duration: 110s;
+    -o-animation-duration: 100s;
     /* general syntax */
-    animation-duration: 110s;
+    animation-duration: 100s;
 }

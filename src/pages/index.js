@@ -8,7 +8,7 @@ import { get } from 'lodash'
 function RootIndex(props) {
     const [main] = get(props.data, "allContentfulMainPage.edges")
     const siteTitle = get(props.data, "site.siteMetadata.title")
-    
+
     return (
       <>
         <Intro data={main.node}>

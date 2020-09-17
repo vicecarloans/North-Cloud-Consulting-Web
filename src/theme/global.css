@@ -1,9 +1,6 @@
 @import url("https://pagecdn.io/lib/easyfonts/barlow.css");
 
-html,
-body {
-    overflow-x: hidden;
-}
+
 body {
     position: relative;
     width: 100%;
@@ -31,7 +28,7 @@ div.ant-list-pagination {
 /* Firefox */
 @-moz-keyframes cloudDrift {
     from {
-        -moz-transform: translateX(0px);
+        -moz-transform: translateX(-1161px);
     }
     to {
         -moz-transform: translateX(calc(100vw + 1600px));
@@ -40,7 +37,7 @@ div.ant-list-pagination {
 /* WebKit - Chrome and Safari */
 @-webkit-keyframes cloudDrift {
     from {
-        -webkit-transform: translateX(0px);
+        -webkit-transform: translateX(-1161px);
     }
     to {
         -webkit-transform: translateX(calc(100vw + 1600px));
@@ -49,7 +46,7 @@ div.ant-list-pagination {
 /* Opera */
 @-o-keyframes cloudDrift {
     from {
-        -o-transform: translateX(0px);
+        -o-transform: translateX(-1161px);
     }
     to {
         -o-transform: translateX(calc(100vw + 1600px));
@@ -58,7 +55,7 @@ div.ant-list-pagination {
 /* general syntax */
 @keyframes cloudDrift {
     from {
-        transform: translateX(0px);
+        transform: translateX(-1161px);
     }
     to {
         transform: translateX(calc(100vw + 1600px));
@@ -77,37 +74,21 @@ div.ant-list-pagination {
     /* general syntax */
     animation: cloudDrift linear infinite;
 }
-.sml {
+
+.cloudOnce {
+    position: absolute;
+    z-index: 2;
+    /* Firefox */
+    -moz-animation: cloudDrift linear;
+    /* WebKit - Chrome and Safari */
+    -webkit-animation: cloudDrift linear;
+    /* Opera */
+    -o-animation: cloudDrift linear;
+    /* general syntax */
+    animation: cloudDrift linear;
     /*width 70px*/
     top: -120px;
-    left: -1161px;
-    /* Firefox */
-    -moz-animation-duration: 60s;
-    /* WebKit - Chrome and Safari */
-    -webkit-animation-duration: 60s;
-    /* Opera */
-    -o-animation-duration: 60s;
-    /* general syntax */
-    animation-duration: 60s;
-}
-
-.med {
-    /*width 100px*/
-    top: -60px;
-    left: -1161px;
-    /* Firefox */
-    -moz-animation-duration: 90s;
-    /* WebKit - Chrome and Safari */
-    -webkit-animation-duration: 90s;
-    /* Opera */
-    -o-animation-duration: 90s;
-    /* general syntax */
-    animation-duration: 90s;
-}
-.lrg {
-    /*width 130px*/
-    top: 40px;
-    left: -1161px;
+    left: 50vw;
     /* Firefox */
     -moz-animation-duration: 120s;
     /* WebKit - Chrome and Safari */
@@ -116,4 +97,45 @@ div.ant-list-pagination {
     -o-animation-duration: 120s;
     /* general syntax */
     animation-duration: 120s;
+}
+
+.sml {
+    /*width 70px*/
+    top: -120px;
+    left: 0px;
+    /* Firefox */
+    -moz-animation-duration: 50s;
+    /* WebKit - Chrome and Safari */
+    -webkit-animation-duration: 50s;
+    /* Opera */
+    -o-animation-duration: 50s;
+    /* general syntax */
+    animation-duration: 50s;
+}
+
+.med {
+    /*width 100px*/
+    top: -60px;
+    left: 0px;
+    /* Firefox */
+    -moz-animation-duration: 65s;
+    /* WebKit - Chrome and Safari */
+    -webkit-animation-duration: 65s;
+    /* Opera */
+    -o-animation-duration: 65s;
+    /* general syntax */
+    animation-duration: 65s;
+}
+.lrg {
+    /*width 130px*/
+    top: 40px;
+    left: 0px;
+    /* Firefox */
+    -moz-animation-duration: 110s;
+    /* WebKit - Chrome and Safari */
+    -webkit-animation-duration: 110s;
+    /* Opera */
+    -o-animation-duration: 110s;
+    /* general syntax */
+    animation-duration: 110s;
 }

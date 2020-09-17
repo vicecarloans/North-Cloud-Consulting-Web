@@ -5,19 +5,22 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 const {Header, Content, Footer} = Layout
 
 export const PageHeader = styled(Header)`
-    background-color: ${props => props.scroll > 30 ? "rgba(255,255,255,0.8)" : "transparent"};
+    background-color: ${props => props.scroll > 100 ? "rgba(255,255,255,0.8)" : "transparent"};
     position: fixed;
     width: 100%; 
     top: 0;
     z-index: 10;
-    
 `;
 
 export const AppLogo = styled.div`
-    height: 64px;
-    background-size: contain;
+    width: ${props => props.scroll > 100 ? "100px" : "120px"};
+    height: ${props => props.scroll > 100 ? "64px" : "100px"};
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    background-image: url("/assets/app-logo.png");
+    transition-duration: 300ms;
+    cursor: pointer;
 `;
 
 export const PageContent = styled(Content)`

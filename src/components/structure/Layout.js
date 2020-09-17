@@ -26,6 +26,8 @@ import { Helmet } from "react-helmet";
 import FooterArrow from "../../../public/assets/footer.svg";
 import { ModalContext } from "utils/modal-context";
 import useDeviceDetect from "utils/useDeviceDetect";
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+
 
 const { Title, Paragraph } = Typography;
 
@@ -41,7 +43,7 @@ function encode(data) {
 export default function PageLayout(props) {
     // state to keep track of how many px scrolled
     const [scroll, setScroll] = useState(
-        typeof document !== "undefined" ? document.body.scrollTop : 0
+        typeof window !== "undefined" ? window.scrollY : 0
     );
     // Modal
     const [visible, setVisible] = useState(false);
@@ -54,18 +56,18 @@ export default function PageLayout(props) {
     const { isMobile } = useDeviceDetect();
     const handleScroll = () =>
         setScroll(
-            typeof document !== "undefined" ? document.body.scrollTop : 0
+            typeof window !== "undefined" ? window.scrollY : 0
         );
 
     // set up listener on window to update scroll state on scroll
     useEffect(() => {
-        if (typeof document !== "undefined") {
+        if (typeof window !== "undefined") {
             console.log("Add Scroll Event Listener");
-            document.body.addEventListener("scroll", handleScroll);
+            window.addEventListener("scroll", handleScroll);
         }
         return () => {
-            if (typeof document !== "undefined") {
-                document.body.removeEventListener("scroll", () => {
+            if (typeof window !== "undefined") {
+                window.removeEventListener("scroll", () => {
                     console.log("Remove Scroll Event Listener");
                 });
             }
@@ -234,7 +236,10 @@ export default function PageLayout(props) {
                 <PageHeader scroll={scroll}>
                     <Row justify="space-between">
                         <Col>
-                            <AppLogo />
+                            <AniLink to="/" fade>
+                                <AppLogo scroll={scroll}/>
+                            </AniLink>
+                            
                         </Col>
                         <Col>
                             <Space

@@ -97,6 +97,7 @@ div.ant-list-pagination {
     -o-animation-duration: 120s;
     /* general syntax */
     animation-duration: 120s;
+    animation-fill-mode: forwards;
 }
 
 .sml {

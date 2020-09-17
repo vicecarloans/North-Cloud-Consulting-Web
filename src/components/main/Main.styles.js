@@ -31,7 +31,7 @@ export const BackgroundImage = styled(Img)`
 export const BackgroundImageOverlay = styled.div`
     width: 100%;
     height: 100vh;
-    background-color: rgba(36,122,182,0.7);
+    background-color: rgba(255,255,255,0.4);
     position: absolute;
     z-index: 2;
     top: 0

@@ -11,7 +11,7 @@ export default function TopSection({data}) {
             <Row style={{width: "100%"}} gutter={[16, 16]} justify="center">
                 <Col xs={24} sm={24} lg={12} xl={12}>
                     {data.tags.map(tag => <Tag key={tag} color="volcano">{tag}</Tag>)}
-                    <Title level={2} style={{ color: "#fff" }}>
+                    <Title level={2}>
                         {data.title}
                     </Title>
                     <Breadcrumb>

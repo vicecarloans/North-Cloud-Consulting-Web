@@ -250,7 +250,6 @@ export default function PageLayout(props) {
                                               onClick={() =>
                                                   setDrawerState(true)
                                               }
-                                              style={{color: "#fff"}}
                                               key="drawer-btn"
                                           ></Button>,
                                           <Drawer
@@ -327,7 +326,7 @@ export default function PageLayout(props) {
                     <Title
                         level={3}
                         style={{
-                            color: "#fff",
+                            
                             fontWeight: "bold",
                             marginBottom: "20px",
                         }}
@@ -336,14 +335,14 @@ export default function PageLayout(props) {
                     </Title>
                     <ContactButton
                         onClick={toggleModal}
-                        ghost
+                    
                         icon={<SendOutlined />}
                         size="large"
                     >
                         Contact Us
                     </ContactButton>
 
-                    <Paragraph style={{ color: "#fff", marginTop: "20px" }}>
+                    <Paragraph style={{ marginTop: "20px" }}>
                         &copy; {new Date().getFullYear()} All Rights Reserved.
                     </Paragraph>
                 </PageFooter>

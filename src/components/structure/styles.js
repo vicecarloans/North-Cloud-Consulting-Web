@@ -25,16 +25,16 @@ export const PageContent = styled(Content)`
 `
 
 export const PageFooter = styled(Footer)`
-    background: linear-gradient(to right, #56CCF2, #2F80ED);
+    background: linear-gradient(to bottom, #ECE9E6, #FFFFFF);
     text-align: center;
     min-height: 150px;
     padding-top: 100px;
 `;
 
 export const StyledLink = styled(AniLink)`
-    color: ${props => props.scroll > 30 ? "#000" : "#fff"};
+    color: #000;
     &:hover, &:active {
-        color: #1bc8ee;
+        color: #15778c;
     }
 `;
 
@@ -42,7 +42,7 @@ export const DrawerLink = styled(AniLink)`
     color: #000;
     margin: 20px 0;
     &:hover, &:active {
-        color: #1bc8ee;
+        color: #15778c;
     }
     display: block;
 `;

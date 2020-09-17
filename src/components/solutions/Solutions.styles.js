@@ -4,7 +4,7 @@ import styled from "styled-components"
 export const TopSectionDiv = styled.div`
     min-height: 70vh;
     max-height: 1080px;
-    background: linear-gradient(to right, #56CCF2, #2F80ED);
+    background: linear-gradient(to bottom, #ECE9E6, #FFFFFF);
     padding-top: 100px;
     display: flex;
     align-items: center;

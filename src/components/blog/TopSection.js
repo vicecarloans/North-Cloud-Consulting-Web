@@ -10,13 +10,13 @@ export default function BlogTopSection({data}) {
         <TopSectionDiv>
             <Row align="middle" gutter={[16, 16]} justify="center">
                 <Col style={{paddingLeft: 20, paddingRight: 20}} xs={24} sm={24} lg={8} xl={8}>
-                    <Title level={2} style={{ color: "#fff", }}>
+                    <Title level={2} >
                         {data.title}
                     </Title>
-                    <Title level={5} style={{ color: "#fff", fontWeight: "bold", padding: "0 20"  }}>
+                    <Title level={5} style={{fontWeight: "bold", padding: "0 20"  }}>
                         {data.subTitle}
                     </Title>
-                    <Text style={{color: "#fff", padding: "0 20" }}>
+                    <Text style={{padding: "0 20" }}>
                         {data.childContentfulBlogPageDescriptionTextNode.description}
                     </Text> 
                 </Col>

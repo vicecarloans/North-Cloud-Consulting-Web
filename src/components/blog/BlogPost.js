@@ -1,9 +1,9 @@
 import React from "react";
 import VisibilitySensor from "react-visibility-sensor";
 import { BlogTitle, VisibilityWrapper } from "./Blog.styles";
-import { navigate } from "gatsby"
 import { Spring } from "react-spring/renderprops";
 import { Typography, List, Card } from "antd";
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Img from "gatsby-image";
 
 const { Title } = Typography;
@@ -63,23 +63,25 @@ export default function BlogPost({ data }) {
                                     delay={i * 100}
                                 >
                                     {(styles) => (
-                                        <List.Item
-                                            style={{ ...styles, marginTop: 15 }}
-                                            onClick={() => {navigate(`/blog/${item.slug}`)}}
-                                        >
-                                            <Card
-                                                style={{
-                                                    width: 300,
-                                                    margin: "0 auto",
-                                                }}
-                                                cover={
-                                                    <Img fluid={item.heroImage.fluid} alt={item.title} />
-                                                }
-                                                hoverable
+                                        <AniLink fade to={`/blog/${item.slug}`}>
+                                            <List.Item
+                                                style={{ ...styles, marginTop: 15 }}
                                             >
-                                                <Card.Meta className="custom-card-meta" title={item.title} description={item.childContentfulBlogPostDescriptionTextNode.description} />
-                                            </Card>
-                                        </List.Item>
+                                                <Card
+                                                    style={{
+                                                        width: 300,
+                                                        margin: "0 auto",
+                                                    }}
+                                                    cover={
+                                                        <Img fluid={item.heroImage.fluid} alt={item.title} />
+                                                    }
+                                                    hoverable
+                                                >
+                                                    <Card.Meta className="custom-card-meta" title={item.title} description={item.childContentfulBlogPostDescriptionTextNode.description} />
+                                                </Card>
+                                            </List.Item>
+                                        </AniLink>
+                                        
                                     )}
                                 </Spring>
                             </VisibilityWrapper>

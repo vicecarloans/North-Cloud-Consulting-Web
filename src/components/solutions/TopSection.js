@@ -10,7 +10,7 @@ export default function SolutionTopSection({ data }) {
         <TopSectionDiv>
             <Row align="middle" gutter={[16, 16]} justify="center">
                 <Col style={{paddingLeft: 20, paddingRight: 20}} xs={24} sm={24} lg={8} xl={8}>
-                    <Title level={2} >
+                    <Title >
                         {data.title}
                     </Title>
                     <Title level={5} style={{ fontWeight: "bold", padding: "0 20"  }}>

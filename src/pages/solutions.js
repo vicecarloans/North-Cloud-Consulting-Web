@@ -1,51 +1,62 @@
-import React from 'react'
+import React from "react";
 import { PageLayout } from "components/structure";
-import { TopSection, DetailSection } from 'components/solutions';
+import { TopSection, DetailSection } from "components/solutions";
 import { graphql } from "gatsby";
-import { get } from 'lodash'
+import { get } from "lodash";
 
 export default function Solutions(props) {
-    const [page] = get(props.data, "allContentfulSolutionPage.edges") 
-    const siteTitle = get(props.data, "site.siteMetadata.title")
+    const [page] = get(props.data, "allContentfulSolutionPage.edges");
+    const siteTitle = get(props.data, "site.siteMetadata.title");
+    const siteDescription = get(props.data, "site.siteMetadata.description");
+    const keywords = get(props.data, "site.siteMetadata.keywords");
     return (
-        <PageLayout title={siteTitle} introComponent={<TopSection data={page.node} />}>
-          <DetailSection solutions={page.node.solutions} />
+        <PageLayout
+            metaDescription={siteDescription}
+            keywords={keywords}
+            title={siteTitle}
+            introComponent={<TopSection data={page.node} />}
+        >
+            <DetailSection solutions={page.node.solutions} />
         </PageLayout>
-    )
+    );
 }
 
 export const PageQuery = graphql`
-  query SolutionsPageQuery{
-    site {
-        siteMetadata {
-            title
+    query SolutionsPageQuery {
+        site {
+            siteMetadata {
+                title
+                author
+                description
+                siteUrl
+                keywords
+            }
+        }
+        allContentfulSolutionPage {
+            edges {
+                node {
+                    title
+                    subTitle
+                    description {
+                        description
+                    }
+                    topSectionImage {
+                        fixed(width: 200, height: 200) {
+                            ...GatsbyContentfulFixed_tracedSVG
+                        }
+                    }
+                    solutions {
+                        title
+                        subTitle
+                        mainPoints
+                        image {
+                            fluid(maxWidth: 250, quality: 100) {
+                                src
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-    allContentfulSolutionPage{
-      edges {
-        node {
-          title
-          subTitle
-          description {
-              description
-          }
-          topSectionImage {
-            fixed(width: 200, height: 200){
-              ...GatsbyContentfulFixed_tracedSVG
-            }
-          }
-          solutions {
-            title
-            subTitle
-            mainPoints
-            image {
-              fluid(maxWidth: 250, quality: 100) {
-                src
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 `;

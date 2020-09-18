@@ -27,7 +27,11 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
     siteMetadata: {
-        title: "North Cloud Consulting",
+        title: "North Cloud",
+        author: "Huy Dam",
+        description: "North Cloud Salesforce Consulting Firm",
+        siteUrl: "https://north-cloud.ca/",
+        keywords: ["salesforce", "consulting", "north", "cloud"]
     },
     pathPrefix: "/gatsby-contentful-starter",
     plugins: [

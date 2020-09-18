@@ -26,8 +26,7 @@ import { Helmet } from "react-helmet";
 import FooterArrow from "../../../public/assets/footer.svg";
 import { ModalContext } from "utils/modal-context";
 import useDeviceDetect from "utils/useDeviceDetect";
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const { Title, Paragraph } = Typography;
 
@@ -55,9 +54,7 @@ export default function PageLayout(props) {
     // Mobile Check
     const { isMobile } = useDeviceDetect();
     const handleScroll = () =>
-        setScroll(
-            typeof window !== "undefined" ? window.scrollY : 0
-        );
+        setScroll(typeof window !== "undefined" ? window.scrollY : 0);
 
     // set up listener on window to update scroll state on scroll
     useEffect(() => {
@@ -127,7 +124,22 @@ export default function PageLayout(props) {
                 style={{ backgroundColor: "transparent" }}
                 className="layout"
             >
-                <Helmet title={props.title} />
+                <Helmet
+                    title={props.title}
+                    htmlAttributes={{
+                        lang: "en",
+                    }}
+                    meta={[
+                        {
+                            name: "description",
+                            content: props.metaDescription,
+                        },
+                        {
+                            property: "keywords",
+                            content: props.keywords.join(","),
+                        },
+                    ]}
+                />
                 {/*
                     This defines how your form is setup for the Netlify bots.
                     Users will not see or interact with this form.
@@ -221,15 +233,17 @@ export default function PageLayout(props) {
                                     required: true,
                                     message: "Please input your phone!",
                                 },
-                                ({getFieldValue}) => ({
+                                ({ getFieldValue }) => ({
                                     validator(rule, value) {
-                                        const regex = /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/
-                                        if(regex.test(value)){
-                                            return Promise.resolve()
+                                        const regex = /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/;
+                                        if (regex.test(value)) {
+                                            return Promise.resolve();
                                         }
-                                        return Promise.reject("Phone number is invalid!")
-                                    }
-                                })
+                                        return Promise.reject(
+                                            "Phone number is invalid!"
+                                        );
+                                    },
+                                }),
                             ]}
                         >
                             <Input placeholder="(555) 555-5555" />
@@ -246,14 +260,13 @@ export default function PageLayout(props) {
                     <Row justify="space-between">
                         <Col>
                             <AniLink to="/" fade>
-                                <AppLogo scroll={scroll}/>
+                                <AppLogo scroll={scroll} />
                             </AniLink>
-                            
                         </Col>
                         <Col>
                             <Space
                                 style={{ height: "100%" }}
-                                align={isMobile? "end" : "center"}
+                                align="center"
                                 size="large"
                             >
                                 {isMobile
@@ -340,7 +353,6 @@ export default function PageLayout(props) {
                     <Title
                         level={3}
                         style={{
-                            
                             fontWeight: "bold",
                             marginBottom: "20px",
                         }}
@@ -349,7 +361,6 @@ export default function PageLayout(props) {
                     </Title>
                     <ContactButton
                         onClick={toggleModal}
-                    
                         icon={<SendOutlined />}
                         size="large"
                     >

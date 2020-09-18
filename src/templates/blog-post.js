@@ -10,10 +10,25 @@ import { get } from "lodash";
 export default function BlogPost(props) {
     const post = get(props.data, "contentfulBlogPost");
     const siteTitle = get(props.data, "site.siteMetadata.title");
+    const siteDescription = get(props.data, "site.siteMetadata.description");
+    const keywords = get(props.data, "site.siteMetadata.keywords");
     return (
-        <PageLayout title={post.title || siteTitle} introComponent={<TopSection data={post} />}>
+        <PageLayout
+            metaDescription={siteDescription}
+            keywords={keywords}
+            title={post.title || siteTitle}
+            introComponent={<TopSection data={post} />}
+        >
             <HeroImage post={post} />
-            <Row style={{ width: "100%", paddingLeft: 20, paddingRight: 20, marginBottom: 100 }} justify="center">
+            <Row
+                style={{
+                    width: "100%",
+                    paddingLeft: 20,
+                    paddingRight: 20,
+                    marginBottom: 100,
+                }}
+                justify="center"
+            >
                 <Col xs={24} sm={24} lg={12} xl={12}>
                     {documentToReactComponents(post.body.json, richTextConfig)}
                 </Col>
@@ -27,6 +42,10 @@ export const PageQuery = graphql`
         site {
             siteMetadata {
                 title
+                author
+                description
+                siteUrl
+                keywords
             }
         }
         contentfulBlogPost(slug: { eq: $slug }) {

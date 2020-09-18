@@ -36,6 +36,12 @@ module.exports = {
         "gatsby-transformer-sharp",
         "gatsby-plugin-react-helmet",
         {
+            resolve: 'gatsby-plugin-drift',
+            options: {
+              appId: 'k2d6295am8ua',
+            },
+        },
+        {
             resolve: "gatsby-plugin-styled-components",
             options: { displayName: true, preprocess: false },
         },

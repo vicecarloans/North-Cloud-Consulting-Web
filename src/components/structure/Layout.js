@@ -221,6 +221,15 @@ export default function PageLayout(props) {
                                     required: true,
                                     message: "Please input your phone!",
                                 },
+                                ({getFieldValue}) => ({
+                                    validator(rule, value) {
+                                        const regex = /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/
+                                        if(regex.test(value)){
+                                            return Promise.resolve()
+                                        }
+                                        return Promise.reject("Phone number is invalid!")
+                                    }
+                                })
                             ]}
                         >
                             <Input placeholder="(555) 555-5555" />

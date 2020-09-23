@@ -37,8 +37,10 @@ export const PageQuery = graphql`
                 node {
                     title
                     subTitle
-                    childContentfulBlogPageDescriptionTextNode {
-                        description
+                    description {
+                        childMarkdownRemark{
+                            html
+                        }
                     }
                     blogSectionTitle
                     topSectionImage {

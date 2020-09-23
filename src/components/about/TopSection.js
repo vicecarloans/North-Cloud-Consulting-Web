@@ -16,9 +16,7 @@ export default function AboutTopSection({data}) {
                     <Title level={5} style={{ fontWeight: "bold", padding: "0 20"  }}>
                         {data.subTitle}
                     </Title>
-                    <Text style={{padding: "0 20" }}>
-                        {data.childContentfulAboutPageDescriptionTextNode.description}
-                    </Text> 
+                    <div style={{padding: "0 20" }} dangerouslySetInnerHTML={{ __html: data.description.childMarkdownRemark.html }} />
                 </Col>
                 <Col align="middle" xs={24} sm={24} lg={6} xl={6}>
                     <Img fixed={data.topSectionImage.fixed} />

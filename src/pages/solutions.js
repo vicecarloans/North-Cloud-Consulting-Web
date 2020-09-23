@@ -38,7 +38,9 @@ export const PageQuery = graphql`
                     title
                     subTitle
                     description {
-                        description
+                        childMarkdownRemark{
+                            html
+                        }
                     }
                     topSectionImage {
                         fixed(width: 200, height: 200) {

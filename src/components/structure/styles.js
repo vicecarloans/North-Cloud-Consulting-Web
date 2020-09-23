@@ -28,7 +28,7 @@ export const PageContent = styled(Content)`
 `
 
 export const PageFooter = styled(Footer)`
-    background: linear-gradient(to bottom, #ECE9E6, #FFFFFF);
+    background: linear-gradient(to top, #6cd5fa, #FFFFFF);
     text-align: center;
     min-height: 150px;
     padding-top: 100px;

@@ -8,9 +8,13 @@ const {Title} = Typography
 export const IntroTitle = styled(Title)`
     @media ${device.mobileS} {
         font-size: 44px !important;
+        max-width: 600px;
+        margin: 0 auto;
     }
     @media ${device.laptop} {
         font-size: 70px !important;
+        max-width: 600px;
+        margin: 0 auto;
     }
 `;
 

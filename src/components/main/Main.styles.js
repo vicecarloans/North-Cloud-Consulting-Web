@@ -7,20 +7,15 @@ const {Title} = Typography
 
 export const IntroTitle = styled(Title)`
     @media ${device.mobileS} {
-        font-size: 44px;
+        font-size: 44px !important;
     }
     @media ${device.laptop} {
-        font-size: 75px;
+        font-size: 70px !important;
     }
 `;
 
 export const IntroSubTitle = styled(Title)`
-    @media ${device.mobileS} {
-        font-size: 44px;
-    }
-    @media ${device.laptop} {
-        font-size: 75px;
-    }
+
 `;
 
 export const CompanyFeaturesDiv = styled.div`

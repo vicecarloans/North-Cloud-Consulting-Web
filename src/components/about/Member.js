@@ -94,13 +94,12 @@ export default function Member({ data }) {
                                                     </DRight>
                                                 </DBox>
                                                 <Con>
-                                                    <Paragraph ellipsis={{ rows: 4, expandable: true, symbol: 'more' }}>
-                                                        {
-                                                            consultant
-                                                                .childContentfulPersonShortBioTextNode
+                                                    
+                                                        <div dangerouslySetInnerHTML={{__html: consultant
                                                                 .shortBio
-                                                        }
-                                                    </Paragraph>
+                                                                .childMarkdownRemark
+                                                                .html}}/>
+                                                     
                                                 </Con>
                                             </Conte>
                                         </TeamList>

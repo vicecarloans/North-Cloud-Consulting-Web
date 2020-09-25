@@ -6,7 +6,7 @@ import { device } from 'utils/device'
 const {Title} = Typography
 
 export const IntroTitle = styled(Title)`
-   
+
 `;
 
 export const IntroSubTitle = styled(Title)`
@@ -31,7 +31,7 @@ export const BackgroundImage = styled(Img)`
 export const BackgroundImageOverlay = styled.div`
     width: 100%;
     height: 100vh;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(0,0,0,0.3);
     position: absolute;
     z-index: 2;
     top: 0

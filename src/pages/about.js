@@ -51,8 +51,10 @@ export const PageQuery = graphql`
                     consultants {
                         name
                         title
-                        childContentfulPersonShortBioTextNode {
-                            shortBio
+                        shortBio {
+                            childMarkdownRemark {
+                                html
+                            }
                         }
                         email
                         twitter

@@ -7,8 +7,8 @@ export default function IntroContent({data}) {
 
     return (
         <IntroContentContainer>
-            <IntroTitle >{data.title}</IntroTitle>
-            <IntroSubTitle level={3}>{data.subTitle}</IntroSubTitle>
+            <IntroTitle style={{color: "#fff", fontSize: 55}}>{data.title}</IntroTitle>
+            <IntroSubTitle style={{color: "#fff"}} level={3}>{data.subTitle}</IntroSubTitle>
             <Button style={{width: 300, height: 60, fontSize: 18}} type="primary" onClick={toggleModal}>Request a Quote</Button>
         </IntroContentContainer>
     )

@@ -27,6 +27,7 @@ import FooterArrow from "../../../public/assets/footer.svg";
 import { ModalContext } from "utils/modal-context";
 import useDeviceDetect from "utils/useDeviceDetect";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { useLocation } from "@reach/router"
 
 const { Title, Paragraph } = Typography;
 
@@ -55,7 +56,8 @@ export default function PageLayout(props) {
     const { isMobile } = useDeviceDetect();
     const handleScroll = () =>
         setScroll(typeof window !== "undefined" ? window.scrollY : 0);
-
+    // Current Route
+    const location  = useLocation();
     // set up listener on window to update scroll state on scroll
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -314,15 +316,18 @@ export default function PageLayout(props) {
                                     : [
                                           <StyledLink
                                               scroll={scroll}
+                                              pathname={location.pathname}
                                               to="/solutions"
                                               key="solution-link"
                                               fade
+
                                           >
                                               Solutions
                                           </StyledLink>,
                                           <StyledLink
                                               key="blog-link"
                                               scroll={scroll}
+                                              pathname={location.pathname}
                                               to="/blog"
                                               fade
                                           >
@@ -331,6 +336,7 @@ export default function PageLayout(props) {
                                           <StyledLink
                                               key="about-us-link"
                                               scroll={scroll}
+                                              pathname={location.pathname}
                                               to="/about"
                                               fade
                                           >

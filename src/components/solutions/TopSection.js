@@ -3,7 +3,7 @@ import { Row, Col, Typography } from "antd";
 import Img from "gatsby-image";
 import { TopSectionDiv } from "./Solutions.styles";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 export default function SolutionTopSection({ data }) {
     return (

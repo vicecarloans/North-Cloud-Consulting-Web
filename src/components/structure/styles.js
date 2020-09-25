@@ -5,7 +5,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 const {Header, Content, Footer} = Layout
 
 export const PageHeader = styled(Header)`
-    background-color: ${props => props.scroll > 100 ? "rgba(255,255,255,0.8)" : "transparent"};
+    background-color: ${props => props.scroll >= 0 ? "rgba(255,255,255,0.8)" : "transparent"};
     position: fixed;
     width: 100%; 
     top: 0;
@@ -13,8 +13,8 @@ export const PageHeader = styled(Header)`
 `;
 
 export const AppLogo = styled.div`
-    width: ${props => props.scroll > 100 ? "100px" : "120px"};
-    height: ${props => props.scroll > 100 ? "64px" : "100px"};
+    width: ${props => props.scroll >= 0 ? "100px" : "120px"};
+    height: ${props => props.scroll >= 0 ? "64px" : "100px"};
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@ export const PageFooter = styled(Footer)`
 `;
 
 export const StyledLink = styled(AniLink)`
-    color: ${props => props.scroll > 100 || props.pathname != "/"  ? "#000" :"#fff"};
+    color: ${props => props.scroll >= 0 || props.pathname !== "/"  ? "#000" :"#fff"};
     &:hover, &:active {
         color: #73cff5;
     }

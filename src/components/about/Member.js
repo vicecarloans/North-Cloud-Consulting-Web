@@ -12,7 +12,7 @@ import {
 import { Spring } from "react-spring/renderprops";
 import { Typography, Row, Col, Avatar } from "antd";
 
-const { Title, Text, Paragraph } = Typography;
+const { Title, Text } = Typography;
 
 export default function Member({ data }) {
     return (

@@ -6,11 +6,21 @@ import { device } from 'utils/device'
 const {Title} = Typography
 
 export const IntroTitle = styled(Title)`
-
+    @media ${device.mobileS} {
+        font-size: 44px;
+    }
+    @media ${device.laptop} {
+        font-size: 75px;
+    }
 `;
 
 export const IntroSubTitle = styled(Title)`
-
+    @media ${device.mobileS} {
+        font-size: 44px;
+    }
+    @media ${device.laptop} {
+        font-size: 75px;
+    }
 `;
 
 export const CompanyFeaturesDiv = styled.div`

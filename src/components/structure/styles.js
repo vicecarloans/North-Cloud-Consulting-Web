@@ -26,14 +26,17 @@ export const AppLogo = styled.div`
 export const PageContent = styled(Content)`
     padding-bottom: 1px;
 `
-
 export const PageFooter = styled(Footer)`
-    background: linear-gradient(to top, #73cff5, #FFFFFF);
+    /* background: linear-gradient(to top, #73cff5, #FFFFFF); */
+    background-image: url(${props => props.src ? props.src : ""});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
     text-align: center;
     min-height: 150px;
     padding-top: 100px;
 `;
-
 export const StyledLink = styled(AniLink)`
     color: ${props => props.scroll >= 0 || props.pathname !== "/"  ? "#000" :"#fff"};
     &:hover, &:active {

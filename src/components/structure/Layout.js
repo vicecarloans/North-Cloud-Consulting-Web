@@ -27,7 +27,8 @@ import FooterArrow from "../../../public/assets/footer.svg";
 import { ModalContext } from "utils/modal-context";
 import useDeviceDetect from "utils/useDeviceDetect";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
-import { useLocation } from "@reach/router"
+import { useLocation } from "@reach/router";
+import { StaticQuery, graphql } from "gatsby";
 
 const { Title, Paragraph } = Typography;
 
@@ -57,7 +58,7 @@ export default function PageLayout(props) {
     const handleScroll = () =>
         setScroll(typeof window !== "undefined" ? window.scrollY : 0);
     // Current Route
-    const location  = useLocation();
+    const location = useLocation();
     // set up listener on window to update scroll state on scroll
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -320,7 +321,6 @@ export default function PageLayout(props) {
                                               to="/solutions"
                                               key="solution-link"
                                               fade
-
                                           >
                                               Solutions
                                           </StyledLink>,
@@ -354,29 +354,57 @@ export default function PageLayout(props) {
                     {props.children}
                     <FooterArrow style={{ position: "absolute" }} />
                 </PageContent>
+                <StaticQuery
+                    query={graphql`
+                        query FooterQuery {
+                            allContentfulFooter(limit: 1) {
+                                edges {
+                                    node {
+                                        image {
+                                            fluid(
+                                                maxWidth: 1920
+                                                maxHeight: 1152
+                                                resizingBehavior: SCALE
+                                            ) {
+                                                src
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    `}
+                    render={(data) => {
+                        const imageSrc = `https:${data.allContentfulFooter.edges[0].node.image.fluid.src}`;
+                        return (
+                            <PageFooter src={imageSrc}>
 
-                <PageFooter>
-                    <Title
-                        level={3}
-                        style={{
-                            fontWeight: "bold",
-                            marginBottom: "20px",
-                        }}
-                    >
-                        Like What We Have To Offer?
-                    </Title>
-                    <ContactButton
-                        onClick={toggleModal}
-                        icon={<SendOutlined />}
-                        size="large"
-                    >
-                        Contact Us
-                    </ContactButton>
+                                    <Title
+                                        level={3}
+                                        style={{
+                                            fontWeight: "bold",
+                                            marginBottom: "20px",
+                                        }}
+                                    >
+                                        Like What We Have To Offer?
+                                    </Title>
+                                    <ContactButton
+                                        onClick={toggleModal}
+                                        icon={<SendOutlined />}
+                                        size="large"
+                                    >
+                                        Contact Us
+                                    </ContactButton>
 
-                    <Paragraph style={{ marginTop: "20px" }}>
-                        &copy; {new Date().getFullYear()} All Rights Reserved.
-                    </Paragraph>
-                </PageFooter>
+                                    <Paragraph style={{ marginTop: "20px" }}>
+                                        &copy; {new Date().getFullYear()} All
+                                        Rights Reserved.
+                                    </Paragraph>
+
+                            </PageFooter>
+                        );
+                    }}
+                />
             </Layout>
         </ModalContext.Provider>
     );

@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import { Layout, Button } from 'antd'
+import { Layout, Button, Typography } from 'antd'
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const {Header, Content, Footer} = Layout
+
 
 export const PageHeader = styled(Header)`
     background-color: ${props => props.scroll >= 0 ? "rgba(255,255,255,0.8)" : "transparent"};
@@ -54,8 +55,9 @@ export const DrawerLink = styled(AniLink)`
 `;
 
 export const ContactButton = styled(Button)`
-    &:hover, &:active, &:focus {
-        color: #18578c;
-        border-color: #18578c;
-    }
+   
+`;
+
+export const FooterNav = styled.div`
+    margin-bottom: 5px;
 `;

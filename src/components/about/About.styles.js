@@ -1,9 +1,14 @@
 import styled from "styled-components"
 
 export const FounderTitle = styled.div`
-    min-height: 100px;
+    min-height: 50px;
     margin-top: 40px;
-    text-align: center;
+    text-align: left;
+`;
+
+export const FounderSubTitle = styled.div`
+    min-height: 50px;
+    text-align: left;
 `;
 
 export const TeamList = styled.div`

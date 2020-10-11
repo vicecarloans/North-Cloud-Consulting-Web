@@ -7,6 +7,7 @@ import {
     StyledLink,
     ContactButton,
     DrawerLink,
+    FooterNav,
 } from "./styles";
 import {
     Layout,
@@ -23,7 +24,6 @@ import {
 } from "antd";
 import { SendOutlined, MenuOutlined } from "@ant-design/icons";
 import { Helmet } from "react-helmet";
-import FooterArrow from "../../../public/assets/footer.svg";
 import { ModalContext } from "utils/modal-context";
 import useDeviceDetect from "utils/useDeviceDetect";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
@@ -296,7 +296,7 @@ export default function PageLayout(props) {
                                                   to="/solutions"
                                                   fade
                                               >
-                                                  Solutions
+                                                  Our Services
                                               </DrawerLink>
                                               <DrawerLink
                                                   scroll={scroll}
@@ -322,7 +322,7 @@ export default function PageLayout(props) {
                                               key="solution-link"
                                               fade
                                           >
-                                              Solutions
+                                              Our Services
                                           </StyledLink>,
                                           <StyledLink
                                               key="blog-link"
@@ -352,7 +352,7 @@ export default function PageLayout(props) {
 
                 <PageContent>
                     {props.children}
-                    <FooterArrow style={{ position: "absolute" }} />
+                    {/* <FooterArrow style={{ position: "absolute" }} /> */}
                 </PageContent>
                 <StaticQuery
                     query={graphql`
@@ -378,29 +378,78 @@ export default function PageLayout(props) {
                         const imageSrc = `https:${data.allContentfulFooter.edges[0].node.image.fluid.src}`;
                         return (
                             <PageFooter src={imageSrc}>
+                                <Row
+                                    
+                                    gutter={[16, 16]}
+                                    justify="center"
+                                >
+                                    <Col xs={24} sm={24} lg={8} xl={8}>
+                                        <div>
+                                            <Title level={3} style={{color: "#bababa"}}>
+                                                Navigation
+                                            </Title>
+                                        </div>
+                                        <FooterNav>
+                                            <StyledLink
+                                                scroll={scroll}
+                                                pathname={location.pathname}
+                                                to="/solutions"
+                                                key="solution-link"
+                                                fade
+                                            >
+                                                Our Services
+                                            </StyledLink>
+                                        </FooterNav>
+                                        <FooterNav>
+                                            <StyledLink
+                                                key="blog-link"
+                                                scroll={scroll}
+                                                pathname={location.pathname}
+                                                to="/blog"
+                                                fade
+                                            >
+                                                Blog
+                                            </StyledLink>
+                                        </FooterNav>
+                                        <FooterNav>
+                                            <StyledLink
+                                                key="about-us-link"
+                                                scroll={scroll}
+                                                pathname={location.pathname}
+                                                to="/about"
+                                                fade
+                                            >
+                                                About Us
+                                            </StyledLink>
+                                        </FooterNav>
+                                    </Col>
+                                    <Col xs={24} sm={24} lg={8} xl={8}>
+                                        <Title
+                                            level={3}
+                                            style={{
+                                                fontWeight: "bold",
+                                                marginBottom: "20px",
+                                            }}
+                                        >
+                                            Like What We Have To Offer?
+                                        </Title>
+                                        <ContactButton
+                                            type="primary"
+                                            onClick={toggleModal}
+                                            icon={<SendOutlined />}
+                                            size="large"
+                                        >
+                                            Talk To Us!
+                                        </ContactButton>
 
-                                    <Title
-                                        level={3}
-                                        style={{
-                                            fontWeight: "bold",
-                                            marginBottom: "20px",
-                                        }}
-                                    >
-                                        Like What We Have To Offer?
-                                    </Title>
-                                    <ContactButton
-                                        onClick={toggleModal}
-                                        icon={<SendOutlined />}
-                                        size="large"
-                                    >
-                                        Contact Us
-                                    </ContactButton>
-
-                                    <Paragraph style={{ marginTop: "20px" }}>
-                                        &copy; {new Date().getFullYear()} All
-                                        Rights Reserved.
-                                    </Paragraph>
-
+                                        <Paragraph
+                                            style={{ marginTop: "20px" }}
+                                        >
+                                            &copy; {new Date().getFullYear()}{" "}
+                                            All Rights Reserved.
+                                        </Paragraph>
+                                    </Col>
+                                </Row>
                             </PageFooter>
                         );
                     }}

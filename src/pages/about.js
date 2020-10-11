@@ -48,6 +48,11 @@ export const PageQuery = graphql`
                         }
                     }
                     memberSectionTitle
+                    memberSectionDescription {
+                        childMarkdownRemark {
+                            html
+                        }
+                    }
                     consultants {
                         name
                         title
@@ -62,8 +67,7 @@ export const PageQuery = graphql`
                         phone
                         image {
                             fluid(
-                                maxWidth: 80
-                                maxHeight: 80
+                                maxHeight: 250
                                 resizingBehavior: SCALE
                                 quality: 100
                             ) {

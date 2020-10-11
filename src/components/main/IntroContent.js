@@ -9,7 +9,7 @@ export default function IntroContent({data}) {
         <IntroContentContainer>
             <IntroTitle style={{color: "#fff"}}>{data.title}</IntroTitle>
             <IntroSubTitle style={{color: "#fff"}} level={3}>{data.subTitle}</IntroSubTitle>
-            <Button style={{width: 300, height: 60, fontSize: 18}} type="primary" onClick={toggleModal}>Request a Quote</Button>
+            <Button style={{width: 300, height: 60, fontSize: 18}} type="primary" onClick={toggleModal}>Talk To Us!</Button>
         </IntroContentContainer>
     )
 }

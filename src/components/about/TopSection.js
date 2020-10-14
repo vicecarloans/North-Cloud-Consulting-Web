@@ -8,7 +8,7 @@ const { Title } = Typography;
 export default function AboutTopSection({data}) {
     return (
         <TopSectionDiv>
-            <Row align="middle" gutter={[16, 16]} justify="center">
+            <Row style={{width: '100%'}} align="middle" gutter={[16, 16]} justify="center">
                 <Col style={{paddingLeft: 20, paddingRight: 20}} xs={24} sm={24} lg={8} xl={8}>
                     <Title >
                         {data.title}
@@ -18,7 +18,7 @@ export default function AboutTopSection({data}) {
                     </Title>
                     <div dangerouslySetInnerHTML={{ __html: data.description.childMarkdownRemark.html }} />
                 </Col>
-                <Col align="middle" xs={24} sm={24} lg={4} xl={4}>
+                <Col align="middle" xs={24} sm={24} lg={6} xl={6}>
                     <Img fixed={data.topSectionImage.fixed} />
                 </Col>
             </Row>

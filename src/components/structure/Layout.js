@@ -385,7 +385,7 @@ export default function PageLayout(props) {
                                 >
                                     <Col xs={24} sm={24} lg={8} xl={8}>
                                         <div>
-                                            <Title level={3} style={{color: "#bababa"}}>
+                                            <Title level={3} style={{fontSize: 30, fontWeight: "bold"}}>
                                                 Navigation
                                             </Title>
                                         </div>

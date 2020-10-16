@@ -104,7 +104,7 @@ export default function Member({ data }) {
                                 >
                                     <Avatar
                                         shape="square"
-                                        size={250}
+                                        size={200}
                                         src={`https:${consultant.image.fluid.src}`}
                                     />
                                     <Title style={{marginTop: 10, marginBottom: 10}} level={4}>{consultant.name}</Title>

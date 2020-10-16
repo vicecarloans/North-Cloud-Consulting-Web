@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Layout, Button, Typography } from 'antd'
+import { Layout, Button } from 'antd'
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const {Header, Content, Footer} = Layout

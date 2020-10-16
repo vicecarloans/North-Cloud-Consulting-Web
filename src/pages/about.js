@@ -67,7 +67,7 @@ export const PageQuery = graphql`
                         phone
                         image {
                             fluid(
-                                maxHeight: 250
+                                maxHeight: 200
                                 resizingBehavior: SCALE
                                 quality: 100
                             ) {

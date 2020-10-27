@@ -30,7 +30,7 @@ export const PageContent = styled(Content)`
 export const PageFooter = styled(Footer)`
     /* background: linear-gradient(to top, #73cff5, #FFFFFF); */
     background-image: url(${props => props.src ? props.src : ""});
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
 

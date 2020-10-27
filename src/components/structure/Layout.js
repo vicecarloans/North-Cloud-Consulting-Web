@@ -361,10 +361,9 @@ export default function PageLayout(props) {
                                 edges {
                                     node {
                                         image {
-                                            fluid(
-                                                maxWidth: 1920
-                                                maxHeight: 1152
-                                                resizingBehavior: SCALE
+                                            fixed(
+                                                width: 1680
+                                                height: 298
                                             ) {
                                                 src
                                             }
@@ -375,7 +374,7 @@ export default function PageLayout(props) {
                         }
                     `}
                     render={(data) => {
-                        const imageSrc = `https:${data.allContentfulFooter.edges[0].node.image.fluid.src}`;
+                        const imageSrc = `https:${data.allContentfulFooter.edges[0].node.image.fixed.src}`;
                         return (
                             <PageFooter src={imageSrc}>
                                 <Row

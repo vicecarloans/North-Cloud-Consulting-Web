@@ -52,7 +52,7 @@ export const PageQuery = graphql`
                         subTitle
                         mainPoints
                         image {
-                            fluid(maxWidth: 250, quality: 100) {
+                            fluid(maxWidth: 300, quality: 100) {
                                 src
                             }
                         }

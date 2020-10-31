@@ -7,7 +7,7 @@ import {
 import { Spring } from "react-spring/renderprops";
 import useDeviceDetect from "utils/useDeviceDetect";
 import { Typography, Row, Col, Avatar, Button } from "antd";
-import { LinkedinFilled, TwitterOutlined } from '@ant-design/icons'
+import { LinkedinFilled } from '@ant-design/icons'
 
 const { Title, Text } = Typography;
 
@@ -43,7 +43,7 @@ export default function Member({ data }) {
                                             ...styles,
                                             fontWeight: "bold",
                                         }}
-                                        level={4}
+                                        level={5}
                                     >
                                         {data.memberSectionTitle}
                                     </Title>
@@ -117,7 +117,6 @@ export default function Member({ data }) {
                                     >
                                         {consultant.title}
                                     </Text>
-                                    <Button onClick={() => {navigateTo(consultant.twitter)}} type="primary" style={{backgroundColor: "#55acee", borderColor: "#55acee", margin: 5}} shape="circle" icon={<TwitterOutlined />} size="32" />
 
                                     <Button onClick={() => {navigateTo(consultant.linkedIn)}} type="primary" style={{backgroundColor: "#0077b5", borderColor: "#0077b5", margin: 5}} shape="circle" icon={<LinkedinFilled />} size="32" />
                                 </Col>

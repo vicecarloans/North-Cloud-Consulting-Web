@@ -6,14 +6,8 @@ import { get } from "lodash";
 
 export default function Solutions(props) {
     const [page] = get(props.data, "allContentfulSolutionPage.edges");
-    const siteTitle = get(props.data, "site.siteMetadata.title");
-    const siteDescription = get(props.data, "site.siteMetadata.description");
-    const keywords = get(props.data, "site.siteMetadata.keywords");
     return (
         <PageLayout
-            metaDescription={siteDescription}
-            keywords={keywords}
-            title={siteTitle}
             introComponent={<TopSection data={page.node} />}
         >
             <DetailSection solutions={page.node.solutions} />
@@ -23,15 +17,6 @@ export default function Solutions(props) {
 
 export const PageQuery = graphql`
     query SolutionsPageQuery {
-        site {
-            siteMetadata {
-                title
-                author
-                description
-                siteUrl
-                keywords
-            }
-        }
         allContentfulSolutionPage {
             edges {
                 node {

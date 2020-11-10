@@ -27,11 +27,11 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
     siteMetadata: {
-        title: "North Cloud",
-        author: "Huy Dam",
+        title: "North Cloud Solutions",
+        author: "Clint Carvalho",
         description: "North Cloud Salesforce Consulting Firm",
-        siteUrl: "https://north-cloud.ca/",
-        keywords: ["salesforce", "consulting", "north", "cloud"]
+        siteUrl: "https://www.northcloudsolutions.ca/",
+        keywords: ["salesforce", "consulting", "north", "cloud"],
     },
     pathPrefix: "/gatsby-contentful-starter",
     plugins: [
@@ -40,9 +40,9 @@ module.exports = {
         "gatsby-transformer-sharp",
         "gatsby-plugin-react-helmet",
         {
-            resolve: 'gatsby-plugin-drift',
+            resolve: "gatsby-plugin-drift",
             options: {
-              appId: 'k2d6295am8ua',
+                appId: "k2d6295am8ua",
             },
         },
         {
@@ -75,16 +75,29 @@ module.exports = {
                 src: path.join(__dirname, "src"),
                 pages: path.join(__dirname, "src/pages"),
                 components: path.join(__dirname, "src/components"),
-                utils: path.join(__dirname, "src/utils")
+                utils: path.join(__dirname, "src/utils"),
             },
         },
         {
-            resolve: 'gatsby-plugin-react-svg',
+            resolve: "gatsby-plugin-react-svg",
             options: {
-              rule: {
-                include: /assets/
-              }
-            }
-        }
+                rule: {
+                    include: /assets/,
+                },
+            },
+        },
+        {
+            resolve: "gatsby-plugin-manifest",
+            options: {
+                name: "North Cloud Solutions",
+                short_name: "NorthCloud",
+                start_url: "/",
+                background_color: "#fff",
+                theme_color: "#1890ff",
+                display: "standalone",
+                icon: "static/favicon-32x32.png",
+            },
+        },
+        "gatsby-plugin-offline"
     ],
 };

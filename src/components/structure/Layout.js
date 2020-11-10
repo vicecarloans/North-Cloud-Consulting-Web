@@ -23,12 +23,12 @@ import {
     Drawer,
 } from "antd";
 import { SendOutlined, MenuOutlined } from "@ant-design/icons";
-import { Helmet } from "react-helmet";
 import { ModalContext } from "utils/modal-context";
 import useDeviceDetect from "utils/useDeviceDetect";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { useLocation } from "@reach/router";
 import { StaticQuery, graphql } from "gatsby";
+import SEO from './SEO'
 
 const { Title, Paragraph } = Typography;
 
@@ -127,22 +127,7 @@ export default function PageLayout(props) {
                 style={{ backgroundColor: "transparent" }}
                 className="layout"
             >
-                <Helmet
-                    title={props.title}
-                    htmlAttributes={{
-                        lang: "en",
-                    }}
-                    meta={[
-                        {
-                            name: "description",
-                            content: props.metaDescription,
-                        },
-                        {
-                            property: "keywords",
-                            content: props.keywords.join(","),
-                        },
-                    ]}
-                />
+                <SEO title={props.siteTitle} description={props.siteDescription} />
                 {/*
                     This defines how your form is setup for the Netlify bots.
                     Users will not see or interact with this form.
@@ -238,7 +223,7 @@ export default function PageLayout(props) {
                                 },
                                 ({ getFieldValue }) => ({
                                     validator(rule, value) {
-                                        const regex = /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/;
+                                        const regex = /^(1\s|1|)?((\(\d{3}\))|\d{3})(-|\s)?(\d{3})(-|\s)?(\d{4})$/; // eslint-disable
                                         if (regex.test(value)) {
                                             return Promise.resolve();
                                         }

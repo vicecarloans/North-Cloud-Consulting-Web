@@ -9,14 +9,11 @@ import { get } from "lodash";
 
 export default function BlogPost(props) {
     const post = get(props.data, "contentfulBlogPost");
-    const siteTitle = get(props.data, "site.siteMetadata.title");
-    const siteDescription = get(props.data, "site.siteMetadata.description");
-    const keywords = get(props.data, "site.siteMetadata.keywords");
+    const [siteContent] = post.body.content[0].content
     return (
         <PageLayout
-            metaDescription={siteDescription}
-            keywords={keywords}
-            title={post.title || siteTitle}
+            siteDescription={siteContent.value}
+            siteTitle={post.title}
             introComponent={<TopSection data={post} />}
         >
             <HeroImage post={post} />
@@ -39,15 +36,6 @@ export default function BlogPost(props) {
 
 export const PageQuery = graphql`
     query BlogPostBySlug($slug: String!) {
-        site {
-            siteMetadata {
-                title
-                author
-                description
-                siteUrl
-                keywords
-            }
-        }
         contentfulBlogPost(slug: { eq: $slug }) {
             title
             publishDate(formatString: "MMMM Do, YYYY")
@@ -67,6 +55,11 @@ export const PageQuery = graphql`
             tags
             body {
                 json
+                content{
+                    content{
+                        value
+                    }
+                }
             }
         }
     }

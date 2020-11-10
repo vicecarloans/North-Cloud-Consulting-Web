@@ -34,7 +34,7 @@ export const PageQuery = graphql`
                             maxHeight: 1080
                             resizingBehavior: SCALE
                         ) {
-                            ...GatsbyContentfulFluid_tracedSVG
+                            ...GatsbyContentfulFluid
                         }
                     }
                     features {

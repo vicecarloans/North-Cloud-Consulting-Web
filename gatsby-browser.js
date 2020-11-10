@@ -2,8 +2,7 @@ import "./src/theme/global.css";
 
 // in gastby-browser.js
 export const shouldUpdateScroll = ({
-    routerProps: { location },
-    getSavedScrollPosition,
+    routerProps: { location }
 }) => {
     const { pathname } = location;
     // list of routes for the scroll-to-top-hook
@@ -13,3 +12,9 @@ export const shouldUpdateScroll = ({
     }
     return false;
 };
+
+export const onInitialClientRender = () => {
+    setTimeout(function() {
+        document.getElementById("___loader").style.display = "none"
+    }, 500)
+}

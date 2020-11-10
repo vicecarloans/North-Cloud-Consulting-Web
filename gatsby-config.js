@@ -92,10 +92,10 @@ module.exports = {
                 name: "North Cloud Solutions",
                 short_name: "NorthCloud",
                 start_url: "/",
-                background_color: "#fff",
+                background_color: "#FFF",
                 theme_color: "#1890ff",
-                display: "standalone",
-                icon: "static/favicon-32x32.png",
+                display: "fullscreen",
+                icon: "static/assets/app-logo.png",
             },
         },
         "gatsby-plugin-offline"

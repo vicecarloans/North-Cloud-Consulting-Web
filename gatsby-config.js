@@ -35,7 +35,29 @@ module.exports = {
     },
     pathPrefix: "/gatsby-contentful-starter",
     plugins: [
+        {
+            resolve: "gatsby-plugin-manifest",
+            options: {
+                name: "North Cloud Solutions",
+                short_name: "NorthCloud",
+                start_url: "/",
+                background_color: "#FFF",
+                theme_color: "#1890ff",
+                display: "fullscreen",
+                icon: "static/assets/app-logo.png",
+            },
+        },
+        "gatsby-plugin-offline",
         "gatsby-transformer-remark",
+        {
+            resolve: `gatsby-plugin-nprogress`,
+            options: {
+                // Setting a color is optional.
+                color: `tomato`,
+                // Disable the loading spinner.
+                showSpinner: false,
+            },
+        },
         "gatsby-plugin-transition-link",
         "gatsby-transformer-sharp",
         "gatsby-plugin-react-helmet",
@@ -85,19 +107,6 @@ module.exports = {
                     include: /assets/,
                 },
             },
-        },
-        {
-            resolve: "gatsby-plugin-manifest",
-            options: {
-                name: "North Cloud Solutions",
-                short_name: "NorthCloud",
-                start_url: "/",
-                background_color: "#FFF",
-                theme_color: "#1890ff",
-                display: "fullscreen",
-                icon: "static/assets/app-logo.png",
-            },
-        },
-        "gatsby-plugin-offline"
+        }
     ],
 };

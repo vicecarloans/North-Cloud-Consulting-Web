@@ -41,8 +41,8 @@ export default function BlogPost({ data }) {
                     sm: 1,
                     md: 2,
                     lg: 2,
-                    xl: 3,
-                    xxl: 3,
+                    xl: 4,
+                    xxl: 4,
                 }}
                 pagination={{
                     pageSize: 6

@@ -346,11 +346,8 @@ export default function PageLayout(props) {
                                 edges {
                                     node {
                                         image {
-                                            fixed(
-                                                width: 1680
-                                                height: 298
-                                            ) {
-                                                src
+                                            file {
+                                                url
                                             }
                                         }
                                     }
@@ -359,11 +356,10 @@ export default function PageLayout(props) {
                         }
                     `}
                     render={(data) => {
-                        const imageSrc = `https:${data.allContentfulFooter.edges[0].node.image.fixed.src}`;
+                        const imageSrc = `https:${data.allContentfulFooter.edges[0].node.image.file.url}`;
                         return (
                             <PageFooter src={imageSrc}>
                                 <Row
-                                    
                                     gutter={[16, 16]}
                                     justify="center"
                                 >

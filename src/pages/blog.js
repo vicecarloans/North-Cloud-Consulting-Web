@@ -10,7 +10,7 @@ export default function BlogPage(props) {
         <PageLayout
             introComponent={<TopSection data={page.node} />}
         >
-            <BlogPost data={page.node} />
+            <BlogPost data={page.node} showPagination />
         </PageLayout>
     );
 }

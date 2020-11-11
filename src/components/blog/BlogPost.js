@@ -3,12 +3,12 @@ import VisibilitySensor from "react-visibility-sensor";
 import { BlogTitle, VisibilityWrapper } from "./Blog.styles";
 import { Spring } from "react-spring/renderprops";
 import { Typography, List, Card } from "antd";
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import Img from "gatsby-image";
 
 const { Title } = Typography;
 
-export default function BlogPost({ data }) {
+export default function BlogPost({ data, showPagination }) {
     return (
         <>
             <VisibilitySensor partialVisibility>
@@ -44,10 +44,14 @@ export default function BlogPost({ data }) {
                     xl: 4,
                     xxl: 4,
                 }}
-                pagination={{
-                    pageSize: 6
-                }}
-                style={{marginBottom: 100}}
+                pagination={
+                    showPagination
+                        ? {
+                              pageSize: 6,
+                          }
+                        : false
+                }
+                style={{ marginBottom: 100 }}
                 dataSource={data.blogs}
                 renderItem={(item, i) => (
                     <VisibilitySensor partialVisibility>
@@ -65,7 +69,10 @@ export default function BlogPost({ data }) {
                                     {(styles) => (
                                         <AniLink fade to={`/blog/${item.slug}`}>
                                             <List.Item
-                                                style={{ ...styles, marginTop: 15 }}
+                                                style={{
+                                                    ...styles,
+                                                    marginTop: 15,
+                                                }}
                                             >
                                                 <Card
                                                     style={{
@@ -73,15 +80,28 @@ export default function BlogPost({ data }) {
                                                         margin: "0 auto",
                                                     }}
                                                     cover={
-                                                        <Img fluid={item.heroImage.fluid} alt={item.title} />
+                                                        <Img
+                                                            fluid={
+                                                                item.heroImage
+                                                                    .fluid
+                                                            }
+                                                            alt={item.title}
+                                                        />
                                                     }
                                                     hoverable
                                                 >
-                                                    <Card.Meta className="custom-card-meta" title={item.title} description={item.childContentfulBlogPostDescriptionTextNode.description} />
+                                                    <Card.Meta
+                                                        className="custom-card-meta"
+                                                        title={item.title}
+                                                        description={
+                                                            item
+                                                                .childContentfulBlogPostDescriptionTextNode
+                                                                .description
+                                                        }
+                                                    />
                                                 </Card>
                                             </List.Item>
                                         </AniLink>
-                                        
                                     )}
                                 </Spring>
                             </VisibilityWrapper>

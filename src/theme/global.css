@@ -22,7 +22,9 @@ pre code {
 div.ant-list-pagination {
     text-align: center;
 }
-
+img.ant-image-img {
+    width: initial;
+}
 /* Clouds drifting */
 
 /* Firefox */

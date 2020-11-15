@@ -33,6 +33,11 @@ export const PageQuery = graphql`
                 node {
                     title
                     subTitle
+                    mobileSubtitle {
+                        childMarkdownRemark {
+                            html
+                        }
+                    }
                     backgroundImage {
                         fluid(
                             maxWidth: 1920

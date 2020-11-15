@@ -67,19 +67,22 @@ export default function BlogPost({ data, showPagination }) {
                                     delay={i * 100}
                                 >
                                     {(styles) => (
-                                        <AniLink fade to={`/blog/${item.slug}`}>
-                                            <List.Item
+                                        <List.Item
+                                            style={{
+                                                ...styles,
+                                                marginTop: 15,
+                                            }}
+                                        >
+                                            <Card
                                                 style={{
-                                                    ...styles,
-                                                    marginTop: 15,
+                                                    width: 300,
+                                                    margin: "0 auto",
                                                 }}
-                                            >
-                                                <Card
-                                                    style={{
-                                                        width: 300,
-                                                        margin: "0 auto",
-                                                    }}
-                                                    cover={
+                                                cover={
+                                                    <AniLink
+                                                        fade
+                                                        to={`/blog/${item.slug}`}
+                                                    >
                                                         <Img
                                                             fluid={
                                                                 item.heroImage
@@ -87,8 +90,13 @@ export default function BlogPost({ data, showPagination }) {
                                                             }
                                                             alt={item.title}
                                                         />
-                                                    }
-                                                    hoverable
+                                                    </AniLink>
+                                                }
+                                                hoverable
+                                            >
+                                                <AniLink
+                                                    fade
+                                                    to={`/blog/${item.slug}`}
                                                 >
                                                     <Card.Meta
                                                         className="custom-card-meta"
@@ -99,9 +107,9 @@ export default function BlogPost({ data, showPagination }) {
                                                                 .description
                                                         }
                                                     />
-                                                </Card>
-                                            </List.Item>
-                                        </AniLink>
+                                                </AniLink>
+                                            </Card>
+                                        </List.Item>
                                     )}
                                 </Spring>
                             </VisibilityWrapper>

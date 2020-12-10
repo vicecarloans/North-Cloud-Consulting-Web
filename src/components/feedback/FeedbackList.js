@@ -2,21 +2,30 @@ import React from "react";
 import { Carousel } from "antd";
 import Feedback from "./Feedback";
 import { FeedbackWrapper } from "./Feedback.styles";
-import useDeviceDetect from "utils/useDeviceDetect";
-export default function FeedbackList({ feedbacks, columnCount, style = {} }) {
-    const { isMobile } = useDeviceDetect();
+import {isMobileOnly, isTablet} from "react-device-detect";
+
+export default function FeedbackList({ feedbacks, columnCount }) {
+    let slidesToScroll = 0
+    let slidesToShow = 0
+    if(isMobileOnly){
+        slidesToScroll = 1
+        slidesToShow = 1
+    }
+    if(isTablet) {
+        slidesToScroll = 2
+        slidesToShow = 2
+    }
     const settings = {
         autoplay: true,
         dots: false,
         infinite: true,
         draggable: true,
         swipe: true,
-        swipeToSlide: true,
-        slidesToScroll: isMobile ? 1 : columnCount,
-        slidesToShow: isMobile ? 1 : columnCount,
+        slidesToScroll: slidesToScroll > 0 ? slidesToScroll : columnCount > feedbacks.length ? feedbacks.length : columnCount,
+        slidesToShow: slidesToShow > 0 ? slidesToShow: columnCount > feedbacks.length ? feedbacks.length : columnCount,
     };
     return (
-        <Carousel style={style} {...settings}>
+        <Carousel {...settings} className="north-cloud-carousel">
             {feedbacks.map((feedback, i) => (
                 <FeedbackWrapper key={feedback.id}>
                     <Feedback

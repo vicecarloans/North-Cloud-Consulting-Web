@@ -4,14 +4,22 @@ import { CompanyFeaturesDiv } from "./Main.styles";
 import { Spring } from "react-spring/renderprops";
 import VisibilitySensor from "react-visibility-sensor";
 import Img from "gatsby-image";
+import {isMobileOnly, isTablet} from "react-device-detect";
 
 const { Title, Paragraph } = Typography;
 
 export default function CompanyFeatures({ data }) {
+    let containerMarginTop = 400
+    if(isMobileOnly){
+        containerMarginTop = 300
+    }
+    if(isTablet) {
+        containerMarginTop = 100
+    }
     return (
         <VisibilitySensor partialVisibility>
             {({ isVisible }) => (
-                <div style={{ minHeight: 100, marginTop: 350 }}>
+                <div style={{ minHeight: 100, marginTop: containerMarginTop  }}>
                     <CompanyFeaturesDiv>
                         <Spring
                             to={{

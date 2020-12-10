@@ -6,7 +6,7 @@ const { Meta } = Card;
 export default function Feedback({ author, role, icon, description }) {
     return (
         <Card
-            style={{ width: 350, padding: 25, margin: "20px 0 10px 12px" }}
+            style={{ width: 350, padding: 25, margin: "0 auto" }}
             cover={
                 <div
                     dangerouslySetInnerHTML={{

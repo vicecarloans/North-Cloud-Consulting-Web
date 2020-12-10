@@ -18,11 +18,11 @@ export default function FeedbackList({ feedbacks, columnCount }) {
     const settings = {
         autoplay: true,
         dots: false,
-        infinite: feedbacks.length > columnCount,
+        infinite: true,
         draggable: true,
         swipe: true,
-        slidesToScroll: slidesToScroll > 0 ? slidesToScroll : columnCount,
-        slidesToShow: slidesToShow > 0 ? slidesToShow: columnCount,
+        slidesToScroll: slidesToScroll > 0 ? slidesToScroll : columnCount > feedbacks.length ? feedbacks.length : columnCount,
+        slidesToShow: slidesToShow > 0 ? slidesToShow: columnCount > feedbacks.length ? feedbacks.length : columnCount,
     };
     return (
         <Carousel {...settings} className="north-cloud-carousel">

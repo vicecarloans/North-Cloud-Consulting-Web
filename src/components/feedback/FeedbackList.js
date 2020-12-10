@@ -27,7 +27,7 @@ export default function FeedbackList({ feedbacks, columnCount }) {
     return (
         <Carousel {...settings} className="north-cloud-carousel">
             {feedbacks.map((feedback, i) => (
-                <FeedbackWrapper key={feedback.id}>
+                <FeedbackWrapper key={i}>
                     <Feedback
                         author={feedback.author}
                         description={feedback.description}

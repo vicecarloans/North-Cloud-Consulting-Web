@@ -18,7 +18,7 @@ export default function FeedbackList({ feedbacks, columnCount }) {
     const settings = {
         autoplay: true,
         dots: false,
-        infinite: feedbacks.length > columnCount,
+        infinite: feedbacks.length > (slidesToScroll > 0 ? slidesToScroll : columnCount),
         draggable: true,
         swipe: true,
         slidesToScroll: slidesToScroll > 0 ? slidesToScroll : columnCount,

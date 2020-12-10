@@ -40,6 +40,7 @@ export const BackgroundImage = styled(Img)`
 export const BackgroundImageOverlay = styled.div`
     width: 100%;
     height: 100vh;
+    max-height: 1080px;
     background-color: rgba(0,0,0,0.3);
     position: absolute;
     z-index: 2;
@@ -51,10 +52,11 @@ export const IntroContentContainer = styled.div`
     position: absolute;
     z-index: 4;
     @media ${device.mobileS} {
+        max-width: 100%;
         top: calc((100vh - 384px) / 2);
     }
     @media ${device.laptop} {
-        max-width: 50%;
+        max-width: 100%;
         margin: 0 auto;
         left: 0;
         right: 0;

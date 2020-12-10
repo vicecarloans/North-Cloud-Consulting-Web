@@ -1,6 +1,7 @@
 import React from 'react'
 import { BackgroundImage, BackgroundImageOverlay } from './Main.styles'
 
+
 export default function Intro({data, children}) {
     return (
         <>
@@ -9,6 +10,7 @@ export default function Intro({data, children}) {
             <img className="cloud med" src="/assets/cloud.png" alt="cloud" />
             <img className="cloud lrg" src="/assets/cloud.png" alt="cloud" />
             <img className="cloudOnce" src="/assets/cloud.png" alt="cloud"/>
+           
             <BackgroundImageOverlay />
             {children}
         </>

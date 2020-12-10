@@ -8,6 +8,7 @@ import useDeviceDetect from "utils/useDeviceDetect";
 import { Button } from "antd";
 import { ModalContext } from "utils/modal-context";
 import { SendOutlined } from "@ant-design/icons";
+import { FeedbackList } from '../feedback'
 
 export default function IntroContent({ data }) {
     const { toggleModal } = useContext(ModalContext);
@@ -34,6 +35,7 @@ export default function IntroContent({ data }) {
             >
                 Talk To Us!
             </Button>
+            {data.feedbacks.length > 0 && <FeedbackList style={{marginTop: 80}} feedbacks={data.feedbacks} columnCount={data.columnCount} />}
         </IntroContentContainer>
     );
 }

@@ -11,7 +11,7 @@ export default function CompanyFeatures({ data }) {
     return (
         <VisibilitySensor partialVisibility>
             {({ isVisible }) => (
-                <div style={{ minHeight: 100 }}>
+                <div style={{ minHeight: 100, marginTop: 350 }}>
                     <CompanyFeaturesDiv>
                         <Spring
                             to={{

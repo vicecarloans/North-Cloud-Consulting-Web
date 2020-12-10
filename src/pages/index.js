@@ -5,7 +5,6 @@ import { PageLayout } from "components/structure";
 import { Intro, IntroContent, CompanyFeatures } from "components/main";
 import { get } from "lodash";
 import { BlogPost } from "components/blog";
-
 function RootIndex(props) {
     const [main] = get(props.data, "allContentfulMainPage.edges");
     const blogs = get(props.data, "allContentfulBlogPost.edges");
@@ -58,6 +57,22 @@ export const PageQuery = graphql`
                     }
                     featureTitle
                     blogSectionTitle
+                    feedbacks {
+                        author
+                        description {
+                            childMarkdownRemark{
+                            html
+                            }
+                        }
+                        role
+                        icon {
+                            fixed(width: 50,height: 50) {
+                                src
+                            }
+                        }
+                        id
+                    }
+                    columnCount
                 }
             }
         }

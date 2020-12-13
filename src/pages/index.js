@@ -70,6 +70,7 @@ export const PageQuery = graphql`
                         }
                         role
                         icon {
+                            title
                             fixed(width: 50,height: 50) {
                                 src
                             }

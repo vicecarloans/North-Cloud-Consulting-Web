@@ -3,7 +3,7 @@ import { Card, Avatar } from "antd";
 
 const { Meta } = Card;
 
-export default function Feedback({ author, role, icon, description }) {
+export default function Feedback({ author, role, icon, description, iconAlt }) {
     return (
         <Card
             style={{ width: 350, padding: 25, margin: "0 auto" }}
@@ -16,7 +16,7 @@ export default function Feedback({ author, role, icon, description }) {
             }
         >
             <Meta
-                avatar={<Avatar style={{marginTop: 15}} size={50} src={`https:${icon}`} />}
+                avatar={<Avatar style={{marginTop: 15}} size={50} src={`https:${icon}`} alt={iconAlt} />}
                 title={author}
                 description={role}
             />

@@ -34,6 +34,7 @@ export default function FeedbackList({ feedbacks, columnCount, style = {} }) {
                         description={feedback.description}
                         role={feedback.role}
                         icon={feedback.icon.fixed.src}
+                        iconAlt={feedback.icon.title}
                     />
                 </FeedbackWrapper>
             ))}

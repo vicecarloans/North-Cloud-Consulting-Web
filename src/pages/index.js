@@ -31,7 +31,11 @@ export const PageQuery = graphql`
             edges {
                 node {
                     title
-                    subTitle
+                    subTitle {
+                        childMarkdownRemark {
+                            html
+                        }
+                    }
                     mobileSubtitle {
                         childMarkdownRemark {
                             html

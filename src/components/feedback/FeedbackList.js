@@ -4,7 +4,7 @@ import Feedback from "./Feedback";
 import { FeedbackWrapper } from "./Feedback.styles";
 import {isMobileOnly, isTablet} from "react-device-detect";
 
-export default function FeedbackList({ feedbacks, columnCount }) {
+export default function FeedbackList({ feedbacks, columnCount, style = {} }) {
     let slidesToScroll = 0
     let slidesToShow = 0
     if(isMobileOnly){
@@ -26,7 +26,7 @@ export default function FeedbackList({ feedbacks, columnCount }) {
         slidesToShow: slidesToShow > 0 ? slidesToShow: columnCount,
     };
     return (
-        <Carousel {...settings} className="north-cloud-carousel">
+        <Carousel {...settings} className="north-cloud-carousel" style={style}>
             {feedbacks.map((feedback, i) => (
                 <FeedbackWrapper key={i}>
                     <Feedback

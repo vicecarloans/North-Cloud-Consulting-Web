@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import {
     IntroContentContainer,
-    IntroTitle,
-    IntroSubTitle,
+    IntroTitle
 } from "./Main.styles";
 import useDeviceDetect from "utils/useDeviceDetect";
 import { Button } from "antd";
 import { ModalContext } from "utils/modal-context";
 import { SendOutlined } from "@ant-design/icons";
-import { FeedbackList } from '../feedback'
+import { FeedbackList } from "../feedback";
+import Markdown from "react-showdown";
 
 export default function IntroContent({ data }) {
     const { toggleModal } = useContext(ModalContext);
@@ -17,16 +17,13 @@ export default function IntroContent({ data }) {
         <IntroContentContainer>
             <IntroTitle style={{ color: "#fff" }}>{data.title}</IntroTitle>
             {isMobile ? (
-                <div
-                    dangerouslySetInnerHTML={{
-                        __html: data.mobileSubtitle.childMarkdownRemark.html,
-                    }}
+                <Markdown
+                    markup={data.mobileSubtitle.childMarkdownRemark.html}
                 />
             ) : (
-                <IntroSubTitle style={{ color: "#fff" }} level={3}>
-                    {data.subTitle}
-                </IntroSubTitle>
+                <Markdown markup={data.subTitle.childMarkdownRemark.html} />
             )}
+
             <Button
                 icon={<SendOutlined />}
                 style={{ width: 300, height: 60, fontSize: 18 }}
@@ -35,7 +32,13 @@ export default function IntroContent({ data }) {
             >
                 Talk To Us!
             </Button>
-            {data.feedbacks.length > 0 && <FeedbackList style={{marginTop: 80}} feedbacks={data.feedbacks} columnCount={data.columnCount} />}
+            {data.feedbacks.length > 0 && (
+                <FeedbackList
+                    style={{ marginTop: 120 }}
+                    feedbacks={data.feedbacks}
+                    columnCount={data.columnCount}
+                />
+            )}
         </IntroContentContainer>
     );
 }
